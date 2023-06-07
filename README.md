@@ -1,8 +1,5 @@
 # Line-graph qubit routing: from kagome to heavy-hex and more
-Joris Kattemölle${}^1$ and Seenivasan Hariharan${^{2,3}}$ <br>
-${}^1$Department of Physics, University of Konstanz, Konstanz, Germany <br>
-${^2}$Institute of Physics, University of Amsterdam, Amsterdam, The Netherlands <br>
-${^3}$QuSoft, CWI, Amsterdam, The Netherlands
+Joris Kattemölle and Seenivasan Hariharan
 <hr/>
 
 # Abstract
