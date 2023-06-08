@@ -11,8 +11,8 @@ Heisenberg antiferromagnet on various graphs. The code implementing line-routing
 # Contents
 
 1. Requirements
-1. Complete graph to star graph
 1. Kagome to heavy-hex
+1. Complete graph to star graph
 1. Shuriken to heavy-square-octagon
 1. Checkerboard to heavy-square
 1. Random line graph to random heavy graph
@@ -42,97 +42,6 @@ import line_graph_routing as lgr
 import networkx as nx
 ```
 
-# Complete graph to star graph
-
-## Random
-
-Create a random circuit on the complete graph of four nodes and show the circuit's coupling graph.
-
-
-```python
-n = 5
-lg = nx.complete_graph(4)
-qc = lgr.random_circuit(lg, 10**2)
-cg = lgr.coupling_graph(qc)
-nx.draw_kamada_kawai(cg)
-print(qc.depth())
-```
-
-    55
-
-
-
-    
-![png](figures/output_9_1.png)
-    
-
-
-Route the circuit to a circuit with star-graph connectivity. 
-
-
-```python
-qc = lgr.line_graph_route(qc)
-cg = lgr.coupling_graph(qc)
-nx.draw_kamada_kawai(cg)
-print(qc.depth())
-```
-
-    105
-
-
-
-    
-![png](figures/output_11_1.png)
-    
-
-
-## Quantum simulation
-
-As before,  circuits are defined by identifying every color with a layer of $\mathrm{HEIS}$-gates. For more details,  see the `kagome to heavy-hex` section.
-
-Create and show an edge coloring of the complete graph.
-
-
-```python
-lg = lgr.edge_coloring(lg)
-lgr.draw_edge_coloring(lg)
-```
-
-    Matching is perfect
-    Edge coloring is not minimal
-
-
-
-    
-![png](figures/output_13_1.png)
-    
-
-
-Create the associated circuit,  route it to heavy-hex hardware,  and show the coupling graph of the routed circuit.
-
-
-```python
-p = 1
-qc = lgr.heis_circuit(lg, p)
-print(qc.depth())
-qc = lgr.line_graph_route(qc)
-print(qc.depth())
-cg = lgr.coupling_graph(qc)
-nx.draw_kamada_kawai(cg)
-```
-
-    4
-    20
-
-
-
-    
-![png](figures/output_15_1.png)
-    
-
-
-We do not show the circuit diagram in this case because the routed circuit is not a circuit on a line.
-
 # Kagome to heavy-hex
 
 ## Random
@@ -153,7 +62,7 @@ print(qc.depth())
 
 
     
-![png](figures/output_20_1.png)
+![png](output_9_1.png)
     
 
 
@@ -172,7 +81,7 @@ print(qc.depth())
 
 
     
-![png](figures/output_22_1.png)
+![png](output_11_1.png)
     
 
 
@@ -194,7 +103,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](figures/output_24_1.png)
+![png](output_13_1.png)
     
 
 
@@ -217,7 +126,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](figures/output_26_1.png)
+![png](output_15_1.png)
     
 
 
@@ -236,7 +145,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](figures/output_28_1.png)
+![png](output_17_1.png)
     
 
 
@@ -259,7 +168,7 @@ nx.draw_kamada_kawai(cg, with_labels = 'true')
 
 
     
-![png](figures/output_30_1.png)
+![png](output_19_1.png)
     
 
 
@@ -275,12 +184,103 @@ qc.draw('latex', wire_order = wo)
 
 
     
-![png](figures/output_32_0.png)
+![png](output_21_0.png)
     
 
 
 
 The fircuit depth can be reduced further by replacement of the initial and final SWAP gates between qubits (10,7) and (8,6) by a relabeling of those qubits. 
+
+# Complete graph to star graph
+
+## Random
+
+Create a random circuit on the complete graph of four nodes and show the circuit's coupling graph.
+
+
+```python
+n = 5
+lg = nx.complete_graph(4)
+qc = lgr.random_circuit(lg, 10**2)
+cg = lgr.coupling_graph(qc)
+nx.draw_kamada_kawai(cg)
+print(qc.depth())
+```
+
+    55
+
+
+
+    
+![png](output_26_1.png)
+    
+
+
+Route the circuit to a circuit with star-graph connectivity. 
+
+
+```python
+qc = lgr.line_graph_route(qc)
+cg = lgr.coupling_graph(qc)
+nx.draw_kamada_kawai(cg)
+print(qc.depth())
+```
+
+    105
+
+
+
+    
+![png](output_28_1.png)
+    
+
+
+## Quantum simulation
+
+As before,  circuits are defined by identifying every color with a layer of $\mathrm{HEIS}$-gates. For more details,  see the `kagome to heavy-hex` section.
+
+Create and show an edge coloring of the complete graph.
+
+
+```python
+lg = lgr.edge_coloring(lg)
+lgr.draw_edge_coloring(lg)
+```
+
+    Matching is perfect
+    Edge coloring is not minimal
+
+
+
+    
+![png](output_30_1.png)
+    
+
+
+Create the associated circuit,  route it to heavy-hex hardware,  and show the coupling graph of the routed circuit.
+
+
+```python
+p = 1
+qc = lgr.heis_circuit(lg, p)
+print(qc.depth())
+qc = lgr.line_graph_route(qc)
+print(qc.depth())
+cg = lgr.coupling_graph(qc)
+nx.draw_kamada_kawai(cg)
+```
+
+    4
+    20
+
+
+
+    
+![png](output_32_1.png)
+    
+
+
+We do not show the circuit diagram in this case because the routed circuit is not a circuit on a line.
 
 # Shuriken to heavy square-octagon
 
@@ -303,7 +303,7 @@ print(qc.depth())
 
 
     
-![png](figures/output_37_1.png)
+![png](output_37_1.png)
     
 
 
@@ -322,7 +322,7 @@ print(qc.depth())
 
 
     
-![png](figures/output_39_1.png)
+![png](output_39_1.png)
     
 
 
@@ -344,7 +344,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](figures/output_41_1.png)
+![png](output_41_1.png)
     
 
 
@@ -367,7 +367,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](figures/output_43_1.png)
+![png](output_43_1.png)
     
 
 
@@ -386,7 +386,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](figures/output_45_1.png)
+![png](output_45_1.png)
     
 
 
@@ -407,7 +407,7 @@ nx.draw_kamada_kawai(cg, with_labels = 'true')
 
 
     
-![png](figures/output_46_1.png)
+![png](output_46_1.png)
     
 
 
@@ -420,7 +420,7 @@ qc.draw('latex')
 
 
     
-![png](figures/output_47_0.png)
+![png](output_47_0.png)
     
 
 
@@ -442,7 +442,7 @@ print(qc.depth())
 
 
     
-![png](figures/output_49_1.png)
+![png](output_49_1.png)
     
 
 
@@ -461,7 +461,7 @@ print(qc.depth())
 
 
     
-![png](figures/output_51_1.png)
+![png](output_51_1.png)
     
 
 
@@ -483,7 +483,7 @@ lgr.draw_edge_coloring(lg, spectral=True) # Use spactral method to find location
 
 
     
-![png](figures/output_53_1.png)
+![png](output_53_1.png)
     
 
 
@@ -506,7 +506,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](figures/output_55_1.png)
+![png](output_55_1.png)
     
 
 
@@ -531,7 +531,7 @@ print(qc.depth())
 
 
     
-![png](figures/output_59_1.png)
+![png](output_59_1.png)
     
 
 
@@ -550,7 +550,7 @@ print(qc.depth())
 
 
     
-![png](figures/output_61_1.png)
+![png](output_61_1.png)
     
 
 
@@ -572,7 +572,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](figures/output_63_1.png)
+![png](output_63_1.png)
     
 
 
@@ -595,7 +595,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](figures/output_65_1.png)
+![png](output_65_1.png)
     
 
 
