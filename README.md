@@ -46,7 +46,7 @@ import networkx as nx
 
 ## Random
 
-Create a random circuit on a patch of the kagome lattice of $3\times 3$ unit cells and show the circuit's coupling graph. With probability 2/5, a CNOT is placed along an edge of the connectivity graph. With a probability 3/5 a gate from {H,S,T} is chosen uniformly at random and places at a random node. 
+Create a random circuit on a patch of the kagome lattice of $3\times 3$ unit cells and show the circuit's coupling graph. With probability 2/5, a CNOT is placed along an edge of the connectivity graph. With a probability 3/5 a gate from {H,S,T} is chosen uniformly at random and placed at a random node. 
 
 
 ```python
