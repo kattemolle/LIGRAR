@@ -62,7 +62,7 @@ print(qc.depth())
 
 
     
-![png](output_9_1.png)
+![png](figures/output_9_1.png)
     
 
 
@@ -81,7 +81,7 @@ print(qc.depth())
 
 
     
-![png](output_11_1.png)
+![png](figures/output_11_1.png)
     
 
 
@@ -103,7 +103,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](output_13_1.png)
+![png](figures/output_13_1.png)
     
 
 
@@ -126,7 +126,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](output_15_1.png)
+![png](figures/output_15_1.png)
     
 
 
@@ -145,7 +145,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](output_17_1.png)
+![png](figures/output_17_1.png)
     
 
 
@@ -168,7 +168,7 @@ nx.draw_kamada_kawai(cg, with_labels = 'true')
 
 
     
-![png](output_19_1.png)
+![png](figures/output_19_1.png)
     
 
 
@@ -184,7 +184,7 @@ qc.draw('latex', wire_order = wo)
 
 
     
-![png](output_21_0.png)
+![png](figures/output_21_0.png)
     
 
 
@@ -212,7 +212,7 @@ print(qc.depth())
 
 
     
-![png](output_26_1.png)
+![png](figures/output_26_1.png)
     
 
 
@@ -231,7 +231,7 @@ print(qc.depth())
 
 
     
-![png](output_28_1.png)
+![png](figures/output_28_1.png)
     
 
 
@@ -253,7 +253,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](output_30_1.png)
+![png](figures/output_30_1.png)
     
 
 
@@ -276,7 +276,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](output_32_1.png)
+![png](figures/output_32_1.png)
     
 
 
@@ -303,7 +303,7 @@ print(qc.depth())
 
 
     
-![png](output_37_1.png)
+![png](figures/output_37_1.png)
     
 
 
@@ -322,7 +322,7 @@ print(qc.depth())
 
 
     
-![png](output_39_1.png)
+![png](figures/output_39_1.png)
     
 
 
@@ -344,7 +344,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](output_41_1.png)
+![png](figures/output_41_1.png)
     
 
 
@@ -367,7 +367,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](output_43_1.png)
+![png](figures/output_43_1.png)
     
 
 
@@ -386,7 +386,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](output_45_1.png)
+![png](figures/output_45_1.png)
     
 
 
@@ -407,7 +407,7 @@ nx.draw_kamada_kawai(cg, with_labels = 'true')
 
 
     
-![png](output_46_1.png)
+![png](figures/output_46_1.png)
     
 
 
@@ -420,7 +420,7 @@ qc.draw('latex')
 
 
     
-![png](output_47_0.png)
+![png](figures/output_47_0.png)
     
 
 
@@ -442,7 +442,7 @@ print(qc.depth())
 
 
     
-![png](output_49_1.png)
+![png](figures/output_49_1.png)
     
 
 
@@ -461,7 +461,7 @@ print(qc.depth())
 
 
     
-![png](output_51_1.png)
+![png](figures/output_51_1.png)
     
 
 
@@ -483,7 +483,7 @@ lgr.draw_edge_coloring(lg, spectral=True) # Use spactral method to find location
 
 
     
-![png](output_53_1.png)
+![png](figures/output_53_1.png)
     
 
 
@@ -506,7 +506,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](output_55_1.png)
+![png](figures/output_55_1.png)
     
 
 
@@ -531,7 +531,7 @@ print(qc.depth())
 
 
     
-![png](output_59_1.png)
+![png](figures/output_59_1.png)
     
 
 
@@ -550,7 +550,7 @@ print(qc.depth())
 
 
     
-![png](output_61_1.png)
+![png](figures/output_61_1.png)
     
 
 
@@ -572,7 +572,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](output_63_1.png)
+![png](figures/output_63_1.png)
     
 
 
@@ -595,7 +595,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](output_65_1.png)
+![png](figures/output_65_1.png)
     
 
 
