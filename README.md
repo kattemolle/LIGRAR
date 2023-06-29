@@ -4,7 +4,7 @@ Joris Kattemölle and Seenivasan Hariharan
 
 # Abstract
 
-We showcase and benchmark line-graph qubit routing by routing random circuits (with fixed virtual graph) and circuits needed for the quantum simulation of the
+We showcase and benchmark line-graph qubit routing (https://arxiv.org/abs/2306.05385) by routing random circuits (with fixed virtual graph) and circuits needed for the quantum simulation of the
 Heisenberg antiferromagnet on various graphs. The code implementing line-routing itself is found in
 `line_graph_routing.py` and maps Qiskit quantum circuits to Qiskit quantum circuits. (This can be altered to other circuit libraries with little effort.) We benchmark our results against other methods. The interactive version of this document is `line_graph_routing.ipynb`.
 
