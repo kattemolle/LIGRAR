@@ -70,7 +70,7 @@ print(qc.depth())
 
 
     
-![png](output_9_1.png)
+![png](figures/output_9_1.png)
     
 
 
@@ -89,7 +89,7 @@ print(qc.depth())
 
 
     
-![png](output_11_1.png)
+![png](figures/output_11_1.png)
     
 
 
