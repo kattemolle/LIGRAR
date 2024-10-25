@@ -1,0 +1,267 @@
+{'depth': 15, 'num_swaps': 112, 'num_qubits': 68, 'wall_clock': 0.045007944107055664}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 91, depth: 25
+start adding constraints...
+Trying maximal depth = 6...
+status:unsat, Depth optimization time = 0:00:11.044599, time including preprocessing = 71.465555666
+FAIL to find solution with depth less than  6.
+(:max-memory              573.65
+ :memory                  203.55
+ :num-allocs              22613438
+ :rlimit-count            30299512
+ :sat-backjumps           10261
+ :sat-backtracks          355
+ :sat-conflicts           10617
+ :sat-decisions           138347
+ :sat-del-clause          538000
+ :sat-elim-bool-vars-res  194182
+ :sat-elim-clauses        41847
+ :sat-elim-literals       35449
+ :sat-minimized-lits      196259
+ :sat-mk-clause-2ary      950342
+ :sat-mk-clause-3ary      649907
+ :sat-mk-clause-nary      341686
+ :sat-mk-var              347445
+ :sat-probing-assigned    1
+ :sat-propagations-2ary   20907840
+ :sat-propagations-3ary   431591
+ :sat-propagations-nary   821674
+ :sat-restarts            1676
+ :sat-scc-elim-binary     9972
+ :sat-scc-elim-vars       681
+ :sat-subs-resolution     5471
+ :sat-subs-resolution-dyn 6647
+ :sat-subsumed            1015
+ :sat-units               17722
+ :time                    11.04)
+start adding constraints...
+Trying maximal depth = 9...
+status:sat, Depth optimization time = 5:41:01.697844, time including preprocessing = 20725.281558464
+Find minimal depth 8 with swap num 103
+SWAP on physical edge (0,1) at time 1
+SWAP on physical edge (0,1) at time 3
+SWAP on physical edge (0,1) at time 7
+SWAP on physical edge (0,65) at time 4
+SWAP on physical edge (1,62) at time 2
+SWAP on physical edge (2,3) at time 3
+SWAP on physical edge (2,3) at time 4
+SWAP on physical edge (2,3) at time 6
+SWAP on physical edge (2,45) at time 0
+SWAP on physical edge (3,37) at time 2
+SWAP on physical edge (3,37) at time 5
+SWAP on physical edge (3,37) at time 7
+SWAP on physical edge (4,11) at time 2
+SWAP on physical edge (4,11) at time 4
+SWAP on physical edge (5,6) at time 5
+SWAP on physical edge (5,6) at time 7
+SWAP on physical edge (5,9) at time 6
+SWAP on physical edge (7,8) at time 3
+SWAP on physical edge (8,9) at time 4
+SWAP on physical edge (10,11) at time 8
+SWAP on physical edge (10,65) at time 2
+SWAP on physical edge (10,65) at time 5
+SWAP on physical edge (10,65) at time 7
+SWAP on physical edge (11,12) at time 3
+SWAP on physical edge (12,66) at time 8
+SWAP on physical edge (13,14) at time 0
+SWAP on physical edge (13,14) at time 6
+SWAP on physical edge (15,23) at time 1
+SWAP on physical edge (15,23) at time 3
+SWAP on physical edge (15,23) at time 5
+SWAP on physical edge (16,17) at time 1
+SWAP on physical edge (16,17) at time 6
+SWAP on physical edge (16,53) at time 2
+SWAP on physical edge (16,53) at time 5
+SWAP on physical edge (17,18) at time 3
+SWAP on physical edge (17,18) at time 5
+SWAP on physical edge (19,20) at time 7
+SWAP on physical edge (19,31) at time 1
+SWAP on physical edge (19,31) at time 4
+SWAP on physical edge (20,21) at time 2
+SWAP on physical edge (20,25) at time 3
+SWAP on physical edge (20,25) at time 6
+SWAP on physical edge (22,23) at time 4
+SWAP on physical edge (22,66) at time 3
+SWAP on physical edge (22,66) at time 5
+SWAP on physical edge (22,66) at time 7
+SWAP on physical edge (23,24) at time 2
+SWAP on physical edge (24,67) at time 3
+SWAP on physical edge (24,67) at time 7
+SWAP on physical edge (25,26) at time 2
+SWAP on physical edge (25,26) at time 7
+SWAP on physical edge (26,47) at time 3
+SWAP on physical edge (26,47) at time 5
+SWAP on physical edge (27,39) at time 5
+SWAP on physical edge (27,39) at time 7
+SWAP on physical edge (28,29) at time 1
+SWAP on physical edge (28,29) at time 7
+SWAP on physical edge (28,31) at time 6
+SWAP on physical edge (29,30) at time 2
+SWAP on physical edge (29,30) at time 4
+SWAP on physical edge (29,30) at time 6
+SWAP on physical edge (32,33) at time 1
+SWAP on physical edge (32,33) at time 7
+SWAP on physical edge (32,67) at time 2
+SWAP on physical edge (33,34) at time 2
+SWAP on physical edge (33,34) at time 6
+SWAP on physical edge (35,36) at time 1
+SWAP on physical edge (35,36) at time 7
+SWAP on physical edge (38,40) at time 1
+SWAP on physical edge (38,40) at time 4
+SWAP on physical edge (41,43) at time 3
+SWAP on physical edge (41,43) at time 6
+SWAP on physical edge (42,46) at time 1
+SWAP on physical edge (42,46) at time 3
+SWAP on physical edge (43,44) at time 4
+SWAP on physical edge (43,44) at time 7
+SWAP on physical edge (44,45) at time 6
+SWAP on physical edge (46,50) at time 5
+SWAP on physical edge (46,50) at time 7
+SWAP on physical edge (47,48) at time 6
+SWAP on physical edge (48,49) at time 2
+SWAP on physical edge (49,51) at time 3
+SWAP on physical edge (49,51) at time 5
+SWAP on physical edge (50,51) at time 1
+SWAP on physical edge (50,51) at time 6
+SWAP on physical edge (51,52) at time 2
+SWAP on physical edge (52,61) at time 5
+SWAP on physical edge (52,61) at time 7
+SWAP on physical edge (53,57) at time 0
+SWAP on physical edge (53,54) at time 7
+SWAP on physical edge (54,55) at time 3
+SWAP on physical edge (54,55) at time 6
+SWAP on physical edge (55,56) at time 4
+SWAP on physical edge (55,56) at time 7
+SWAP on physical edge (57,58) at time 2
+SWAP on physical edge (57,58) at time 7
+SWAP on physical edge (58,59) at time 1
+SWAP on physical edge (59,60) at time 3
+SWAP on physical edge (59,60) at time 6
+SWAP on physical edge (60,64) at time 1
+SWAP on physical edge (60,64) at time 7
+SWAP on physical edge (62,63) at time 5
+SWAP on physical edge (62,63) at time 7
+Gate 0: cx 16, 19 on qubits 39 and 38 at time 0
+Gate 1: cx 12, 26 on qubits 26 and 27 at time 0
+Gate 2: cx 14, 24 on qubits 47 and 48 at time 0
+Gate 3: cx 10, 37 on qubits 46 and 50 at time 0
+Gate 4: cx 18, 34 on qubits 13 and 14 at time 1
+Gate 5: cx 9, 32 on qubits 4 and 11 at time 0
+Gate 6: cx 8, 27 on qubits 23 and 24 at time 0
+Gate 7: cx 22, 23 on qubits 54 and 53 at time 1
+Gate 8: cx 35, 36 on qubits 8 and 9 at time 1
+Gate 9: cx 6, 25 on qubits 17 and 18 at time 0
+Gate 10: cx 13, 17 on qubits 19 and 20 at time 0
+Gate 11: cx 5, 39 on qubits 32 and 33 at time 0
+Gate 12: cx 4, 38 on qubits 31 and 28 at time 0
+Gate 13: cx 15, 20 on qubits 41 and 43 at time 0
+Gate 14: cx 3, 28 on qubits 3 and 37 at time 1
+Gate 15: cx 2, 29 on qubits 35 and 40 at time 0
+Gate 16: cx 30, 33 on qubits 62 and 1 at time 0
+Gate 17: cx 21, 31 on qubits 6 and 5 at time 0
+Gate 18: cx 7, 11 on qubits 59 and 58 at time 0
+Gate 19: cx 0, 1 on qubits 64 and 63 at time 0
+Gate 20: cx 9, 31 on qubits 4 and 5 at time 1
+Gate 21: cx 8, 34 on qubits 15 and 14 at time 2
+Gate 22: cx 16, 26 on qubits 39 and 27 at time 1
+Gate 23: cx 12, 14 on qubits 26 and 47 at time 1
+Gate 24: cx 31, 36 on qubits 5 and 9 at time 2
+Gate 25: cx 17, 34 on qubits 21 and 14 at time 3
+Gate 26: cx 18, 35 on qubits 13 and 8 at time 2
+Gate 27: cx 24, 25 on qubits 48 and 18 at time 1
+Gate 28: cx 6, 7 on qubits 53 and 57 at time 3
+Gate 29: cx 19, 38 on qubits 40 and 30 at time 3
+Gate 30: cx 4, 13 on qubits 19 and 31 at time 2
+Gate 31: cx 0, 21 on qubits 60 and 6 at time 2
+Gate 32: cx 18, 36 on qubits 13 and 8 at time 5
+Gate 33: cx 14, 26 on qubits 26 and 27 at time 4
+Gate 34: cx 12, 17 on qubits 20 and 21 at time 4
+Gate 35: cx 24, 37 on qubits 51 and 52 at time 4
+Gate 36: cx 10, 20 on qubits 42 and 43 at time 2
+Gate 37: cx 31, 32 on qubits 5 and 4 at time 3
+Gate 38: cx 27, 34 on qubits 15 and 14 at time 4
+Gate 39: cx 25, 35 on qubits 17 and 7 at time 4
+Gate 40: cx 6, 23 on qubits 53 and 16 at time 4
+Gate 41: cx 5, 13 on qubits 34 and 31 at time 3
+Gate 42: cx 15, 16 on qubits 41 and 39 at time 2
+Gate 43: cx 19, 29 on qubits 38 and 40 at time 5
+Gate 44: cx 2, 3 on qubits 36 and 37 at time 3
+Gate 45: cx 11, 21 on qubits 60 and 6 at time 4
+Gate 46: cx 1, 30 on qubits 63 and 62 at time 1
+Gate 47: cx 17, 18 on qubits 21 and 14 at time 7
+Gate 48: cx 19, 26 on qubits 38 and 39 at time 6
+Gate 49: cx 22, 37 on qubits 56 and 61 at time 6
+Gate 50: cx 16, 20 on qubits 39 and 41 at time 4
+Gate 51: cx 10, 24 on qubits 51 and 49 at time 7
+Gate 52: cx 8, 9 on qubits 66 and 12 at time 6
+Gate 53: cx 14, 25 on qubits 48 and 18 at time 7
+Gate 54: cx 7, 23 on qubits 57 and 53 at time 6
+Gate 55: cx 6, 35 on qubits 17 and 7 at time 7
+Gate 56: cx 27, 39 on qubits 23 and 24 at time 6
+Gate 57: cx 12, 13 on qubits 20 and 19 at time 5
+Gate 58: cx 4, 5 on qubits 31 and 34 at time 5
+Gate 59: cx 29, 38 on qubits 40 and 30 at time 7
+Gate 60: cx 3, 15 on qubits 2 and 45 at time 7
+Gate 61: cx 2, 28 on qubits 36 and 37 at time 6
+Gate 62: cx 30, 32 on qubits 10 and 11 at time 6
+Gate 63: cx 21, 36 on qubits 9 and 8 at time 7
+Gate 64: cx 1, 33 on qubits 62 and 1 at time 6
+Gate 65: cx 0, 11 on qubits 59 and 60 at time 5
+Gate 66: cx 16, 19 on qubits 39 and 38 at time 8
+Gate 67: cx 12, 26 on qubits 26 and 27 at time 8
+Gate 68: cx 14, 24 on qubits 48 and 49 at time 8
+Gate 69: cx 10, 37 on qubits 51 and 52 at time 8
+Gate 70: cx 18, 34 on qubits 14 and 13 at time 8
+Gate 71: cx 9, 32 on qubits 12 and 11 at time 7
+Gate 72: cx 8, 27 on qubits 22 and 23 at time 8
+Gate 73: cx 22, 23 on qubits 55 and 54 at time 8
+Gate 74: cx 35, 36 on qubits 7 and 8 at time 8
+Gate 75: cx 6, 25 on qubits 17 and 18 at time 8
+Gate 76: cx 13, 17 on qubits 20 and 21 at time 8
+Gate 77: cx 5, 39 on qubits 32 and 67 at time 8
+Gate 78: cx 4, 38 on qubits 29 and 30 at time 8
+Gate 79: cx 15, 20 on qubits 45 and 44 at time 8
+Gate 80: cx 3, 28 on qubits 2 and 3 at time 8
+Gate 81: cx 2, 29 on qubits 35 and 40 at time 8
+Gate 82: cx 30, 33 on qubits 65 and 0 at time 8
+Gate 83: cx 21, 31 on qubits 9 and 5 at time 8
+Gate 84: cx 7, 11 on qubits 58 and 59 at time 8
+Gate 85: cx 0, 1 on qubits 64 and 63 at time 8
+result- additional SWAP count = 103.
+result- circuit depth = 9.
+(:max-memory              2476.76
+ :memory                  459.57
+ :num-allocs              575380029
+ :rlimit-count            56948367646.00
+ :sat-ate                 18092
+ :sat-backjumps           23264270
+ :sat-backtracks          1996198
+ :sat-bce                 213305
+ :sat-conflicts           25260469
+ :sat-decisions           148713237
+ :sat-del-clause          26907583
+ :sat-elim-bool-vars-res  1366431
+ :sat-elim-clauses        443311
+ :sat-elim-literals       6905254
+ :sat-gc-clause           23493955
+ :sat-minimized-lits      2853266727
+ :sat-mk-clause-2ary      5811668
+ :sat-mk-clause-3ary      4153062
+ :sat-mk-clause-nary      24771008
+ :sat-mk-var              1954370
+ :sat-probing-assigned    1
+ :sat-propagations-2ary   3645317237
+ :sat-propagations-3ary   3056451585
+ :sat-propagations-nary   651027526
+ :sat-restarts            1890903
+ :sat-scc-elim-binary     125747
+ :sat-scc-elim-vars       2132
+ :sat-subs-resolution     27243
+ :sat-subs-resolution-dyn 128844099
+ :sat-subsumed            109912
+ :sat-tr                  31912
+ :sat-units               181957
+ :time                    7376.86)
+Total compilation time = 28102.283043476.
+('OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg q[68];\ncreg c[68];\n\n// moment 0\ncx q[39], q[38];\ncx q[26], q[27];\ncx q[47], q[48];\ncx q[46], q[50];\ncx q[4], q[11];\ncx q[23], q[24];\ncx q[17], q[18];\ncx q[19], q[20];\ncx q[32], q[33];\ncx q[31], q[28];\ncx q[41], q[43];\ncx q[35], q[40];\ncx q[62], q[1];\ncx q[6], q[5];\ncx q[59], q[58];\ncx q[64], q[63];\nSWAP q[2], q[45];\nSWAP q[13], q[14];\nSWAP q[53], q[57];\n\n// moment 1\ncx q[13], q[14];\ncx q[54], q[53];\ncx q[8], q[9];\ncx q[3], q[37];\ncx q[4], q[5];\ncx q[39], q[27];\ncx q[26], q[47];\ncx q[48], q[18];\ncx q[63], q[62];\nSWAP q[0], q[1];\nSWAP q[15], q[23];\nSWAP q[16], q[17];\nSWAP q[19], q[31];\nSWAP q[28], q[29];\nSWAP q[32], q[33];\nSWAP q[35], q[36];\nSWAP q[38], q[40];\nSWAP q[42], q[46];\nSWAP q[50], q[51];\nSWAP q[58], q[59];\nSWAP q[60], q[64];\n\n// moment 2\ncx q[15], q[14];\ncx q[5], q[9];\ncx q[13], q[8];\ncx q[19], q[31];\ncx q[60], q[6];\ncx q[42], q[43];\ncx q[41], q[39];\nSWAP q[1], q[62];\nSWAP q[3], q[37];\nSWAP q[4], q[11];\nSWAP q[10], q[65];\nSWAP q[16], q[53];\nSWAP q[20], q[21];\nSWAP q[23], q[24];\nSWAP q[25], q[26];\nSWAP q[29], q[30];\nSWAP q[32], q[67];\nSWAP q[33], q[34];\nSWAP q[48], q[49];\nSWAP q[51], q[52];\nSWAP q[57], q[58];\n\n// moment 3\ncx q[21], q[14];\ncx q[53], q[57];\ncx q[40], q[30];\ncx q[5], q[4];\ncx q[34], q[31];\ncx q[36], q[37];\nSWAP q[0], q[1];\nSWAP q[2], q[3];\nSWAP q[7], q[8];\nSWAP q[11], q[12];\nSWAP q[15], q[23];\nSWAP q[17], q[18];\nSWAP q[20], q[25];\nSWAP q[22], q[66];\nSWAP q[24], q[67];\nSWAP q[26], q[47];\nSWAP q[41], q[43];\nSWAP q[42], q[46];\nSWAP q[49], q[51];\nSWAP q[54], q[55];\nSWAP q[59], q[60];\n\n// moment 4\ncx q[26], q[27];\ncx q[20], q[21];\ncx q[51], q[52];\ncx q[15], q[14];\ncx q[17], q[7];\ncx q[53], q[16];\ncx q[60], q[6];\ncx q[39], q[41];\nSWAP q[0], q[65];\nSWAP q[2], q[3];\nSWAP q[4], q[11];\nSWAP q[8], q[9];\nSWAP q[19], q[31];\nSWAP q[22], q[23];\nSWAP q[29], q[30];\nSWAP q[38], q[40];\nSWAP q[43], q[44];\nSWAP q[55], q[56];\n\n// moment 5\ncx q[13], q[8];\ncx q[38], q[40];\ncx q[20], q[19];\ncx q[31], q[34];\ncx q[59], q[60];\nSWAP q[3], q[37];\nSWAP q[5], q[6];\nSWAP q[10], q[65];\nSWAP q[15], q[23];\nSWAP q[16], q[53];\nSWAP q[17], q[18];\nSWAP q[22], q[66];\nSWAP q[26], q[47];\nSWAP q[27], q[39];\nSWAP q[46], q[50];\nSWAP q[49], q[51];\nSWAP q[52], q[61];\nSWAP q[62], q[63];\n\n// moment 6\ncx q[38], q[39];\ncx q[56], q[61];\ncx q[66], q[12];\ncx q[57], q[53];\ncx q[23], q[24];\ncx q[36], q[37];\ncx q[10], q[11];\ncx q[62], q[1];\nSWAP q[2], q[3];\nSWAP q[5], q[9];\nSWAP q[13], q[14];\nSWAP q[16], q[17];\nSWAP q[20], q[25];\nSWAP q[28], q[31];\nSWAP q[29], q[30];\nSWAP q[33], q[34];\nSWAP q[41], q[43];\nSWAP q[44], q[45];\nSWAP q[47], q[48];\nSWAP q[50], q[51];\nSWAP q[54], q[55];\nSWAP q[59], q[60];\n\n// moment 7\ncx q[21], q[14];\ncx q[51], q[49];\ncx q[48], q[18];\ncx q[17], q[7];\ncx q[40], q[30];\ncx q[2], q[45];\ncx q[9], q[8];\ncx q[12], q[11];\nSWAP q[0], q[1];\nSWAP q[3], q[37];\nSWAP q[5], q[6];\nSWAP q[10], q[65];\nSWAP q[19], q[20];\nSWAP q[22], q[66];\nSWAP q[24], q[67];\nSWAP q[25], q[26];\nSWAP q[27], q[39];\nSWAP q[28], q[29];\nSWAP q[32], q[33];\nSWAP q[35], q[36];\nSWAP q[43], q[44];\nSWAP q[46], q[50];\nSWAP q[52], q[61];\nSWAP q[53], q[54];\nSWAP q[55], q[56];\nSWAP q[57], q[58];\nSWAP q[60], q[64];\nSWAP q[62], q[63];\n\n// moment 8\ncx q[39], q[38];\ncx q[26], q[27];\ncx q[48], q[49];\ncx q[51], q[52];\ncx q[14], q[13];\ncx q[22], q[23];\ncx q[55], q[54];\ncx q[7], q[8];\ncx q[17], q[18];\ncx q[20], q[21];\ncx q[32], q[67];\ncx q[29], q[30];\ncx q[45], q[44];\ncx q[2], q[3];\ncx q[35], q[40];\ncx q[65], q[0];\ncx q[9], q[5];\ncx q[58], q[59];\ncx q[64], q[63];\nSWAP q[10], q[11];\nSWAP q[12], q[66];\n\n// measurement\nmeasure q[64]->c[0];\nmeasure q[63]->c[1];\nmeasure q[35]->c[2];\nmeasure q[2]->c[3];\nmeasure q[29]->c[4];\nmeasure q[32]->c[5];\nmeasure q[17]->c[6];\nmeasure q[58]->c[7];\nmeasure q[22]->c[8];\nmeasure q[12]->c[9];\nmeasure q[51]->c[10];\nmeasure q[59]->c[11];\nmeasure q[26]->c[12];\nmeasure q[20]->c[13];\nmeasure q[48]->c[14];\nmeasure q[45]->c[15];\nmeasure q[39]->c[16];\nmeasure q[21]->c[17];\nmeasure q[14]->c[18];\nmeasure q[38]->c[19];\nmeasure q[44]->c[20];\nmeasure q[9]->c[21];\nmeasure q[55]->c[22];\nmeasure q[54]->c[23];\nmeasure q[49]->c[24];\nmeasure q[18]->c[25];\nmeasure q[27]->c[26];\nmeasure q[23]->c[27];\nmeasure q[3]->c[28];\nmeasure q[40]->c[29];\nmeasure q[65]->c[30];\nmeasure q[5]->c[31];\nmeasure q[11]->c[32];\nmeasure q[0]->c[33];\nmeasure q[13]->c[34];\nmeasure q[7]->c[35];\nmeasure q[8]->c[36];\nmeasure q[52]->c[37];\nmeasure q[30]->c[38];\nmeasure q[67]->c[39];\n', [64, 63, 35, 2, 29, 32, 17, 58, 22, 12, 51, 59, 26, 20, 48, 45, 39, 21, 14, 38, 44, 9, 55, 54, 49, 18, 27, 23, 3, 40, 65, 5, 11, 0, 13, 7, 8, 52, 30, 67], [64, 63, 35, 3, 31, 32, 17, 59, 23, 4, 46, 58, 26, 19, 47, 41, 39, 20, 14, 38, 43, 6, 54, 57, 48, 18, 27, 24, 37, 40, 62, 5, 11, 1, 13, 8, 9, 50, 28, 33])

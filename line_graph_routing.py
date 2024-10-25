@@ -3,7 +3,6 @@ Code to implement line-graph routing. For explaination of the code, see line_gra
 """
 
 import networkx as nx
-from netket.graph import Kagome
 from qiskit import QuantumCircuit
 from qiskit.circuit import Parameter
 from qiskit.converters import circuit_to_dag, dag_to_circuit
@@ -102,7 +101,7 @@ def line_graph_route(qc: QuantumCircuit) -> QuantumCircuit:
     """
 
     def heavy(g):
-        # Return the heavy variant h of the networkx.Graph g, assuming g  is of the form as returned by Roussopouloss algorithm (nx.inverse_line_graph). The newly added 'heavy' nodes have labels equal to the graph that was put in to Roussopoulos' algorithm. This is algorithm 1 in the paper.
+        # Return the heavy variant h of the networkx.Graph g, assuming g is of the form as returned by Roussopouloss algorithm (nx.inverse_line_graph). The newly added 'heavy' nodes have labels equal to the graph that was put in to Roussopoulos' algorithm. This is algorithm 1 in the paper.
         h = nx.Graph()
         for a, b in g.edges():
             cn = tuple(set(a) & set(b))  # common node
@@ -281,18 +280,37 @@ def line_graph_route(qc: QuantumCircuit) -> QuantumCircuit:
 # The folowing runctions are for demonstration.
 
 
-def kagome(n: int, m: int) -> nx.Graph:
+def kagome(n: int, m: int, to_ints: bool = True) -> nx.Graph:
     """
     Return the kagome graph of n by m unit cells, with 'padded' edges.
     """
-    n += 1
-    m += 1
-    lat = Kagome(extent=[n, m], pbc=False)
-    g = nx.Graph()
-    g.add_edges_from(lat.edges())
-    g.remove_nodes_from(range(0, 3 * m * n, 3 * m))
-    g.remove_nodes_from(range(1, 3 * m, 3))
-    g = nx.convert_node_labels_to_integers(g)
+    base_edges = [
+        ((0, 0, 0), (0, 0, 1)),
+        ((0, 0, 1), (0, 0, 2)),
+        ((0, 0, 2), (0, 0, 0)),
+        ((0, 0, 1), (1, 0, 0)),
+        ((1, 0, 0), (1, 0, 2)),
+        ((1, 0, 2), (1, 1, 0)),
+        ((0, 0, 2), (0, 1, 0)),
+        ((0, 1, 0), (0, 1, 1)),
+        ((0, 1, 1), (1, 1, 0)),
+        ((0, 1, 1), (1, 0, 2)),
+    ]
+
+    edges = []
+    for i in range(n):
+        for j in range(m):
+            for edge in base_edges:
+                v = edge[0]
+                w = edge[1]
+                _v = (v[0] + i, v[1] + j, v[2])
+                _w = (w[0] + i, w[1] + j, w[2])
+                _edge = (_v, _w)
+                edges.append(_edge)
+
+    g = nx.Graph(edges)
+    if to_ints:
+        g = nx.convert_node_labels_to_integers(g)
     return g
 
 
@@ -374,6 +392,37 @@ def checkerboard(n: int, m: int) -> nx.Graph:
 
     cb = nx.convert_node_labels_to_integers(cb)
     return cb
+
+
+def heavy_square(n, m):
+    """
+    Return heavy square graph with padded edges.
+    """
+    base_edges = [
+        ((0, 0, 0), (0, 0, 1)),
+        ((0, 0, 0), (0, 0, 2)),
+        ((0, 0, 1), (1, 0, 0)),
+        ((1, 0, 0), (1, 0, 2)),
+        ((1, 0, 2), (1, 1, 0)),
+        ((1, 1, 0), (0, 1, 1)),
+        ((0, 1, 1), (0, 1, 0)),
+        ((0, 1, 0), (0, 0, 2)),
+    ]
+
+    edges = []
+    for i in range(n):
+        for j in range(m):
+            for edge in base_edges:
+                v = edge[0]
+                w = edge[1]
+                _v = (v[0] + i, v[1] + j, v[2])
+                _w = (w[0] + i, w[1] + j, w[2])
+                _edge = (_v, _w)
+                edges.append(_edge)
+
+    g = nx.Graph(edges)
+    g = nx.convert_node_labels_to_integers(g)
+    return g
 
 
 def random_line_graph(n: int) -> nx.Graph:
@@ -486,7 +535,8 @@ def edge_coloring(g: nx.Graph, verbose=True) -> nx.Graph:
         )
 
     colors = [g[u][v]["color"] for u, v in g.edges]
-    if max(colors) == 3:  # Specific to kagome lattice
+    degree = max(dict(g.degree()).values())
+    if max(colors) == degree - 1:  # Specific to Vizing class I graphs
         if verbose == True:
             print("Edge coloring is minimal")
     else:
@@ -521,31 +571,39 @@ def draw_edge_coloring(g: nx.Graph, with_labels=False, spectral=False) -> None:
         )
 
 
-def heis_circuit(g: nx.Graph, p: int) -> QuantumCircuit:
+def heis_circuit(g: nx.Graph, p: int, cnot_circ: bool = False) -> QuantumCircuit:
     """
     Return parameterized ansatz qiskit circuit for the HAFM on the networkx.Graph g, with p cycles. The edges
     of g must have a 'color' attribute that specifies the color by an int, the lowest color being 0. Singlets
     are created along those edges with color 0. Subsequently, HEIS gates are added for the colors c-1,..., 0 in
     sequence, with c the number of different edge colors. This (excluding singlet preparation) is repeated p times.
     This means that for $p = 0$, only the initial state is prepared.
+
+    If cnot_circ==True, each gate is a cnot. This results to a circtuit structurally equivalent to the heis_circtuit. Mainly for interfacing with OLSQ2.
     """
     n = len(g.nodes())
+    edges = list(g.edges(data=True))
+    edges = [
+        edge if edge[0] < edge[1] else (edge[1], edge[0], edge[2]) for edge in edges
+    ]
     # Sort edges by color.
-    sorted_edges = sorted(g.edges(data=True), key=lambda e: e[2]["color"])
+    sorted_edges = sorted(edges, key=lambda e: e[2]["color"])
     sorted_edges = list(reversed(sorted_edges))  # Put 'high' colors first.
     qc = QuantumCircuit(n)
 
     # Prepare the initial state.
     for edge in sorted_edges:
         if edge[2]["color"] == 0:
-            qc.append(prepare_singlet(), edge[:2])
+            gate = prepare_singlet() if not cnot_circ else qkcirc.library.CXGate()
+            qc.append(gate, edge[:2])
 
     # Add p cycles of parameterized gates.
     par_count = 0
     for _ in range(p):
         for edge in sorted_edges:
             par = Parameter("al_{}".format(par_count))
-            qc.append(heis_gate(par), edge[:2])
+            gate = heis_gate(par) if not cnot_circ else qkcirc.library.CXGate()
+            qc.append(gate, edge[:2])
             par_count += 1
 
     # Our routing technique, explained later, assumes circuits with a connected coupling graph. If p = 0, pad the circuit with identity gates to make the coupling graph connected.
@@ -760,3 +818,52 @@ def print_benchmark(result):
     print("-" * 150)
     print("}")
     print()
+
+
+def benchmark_against_OLSQ2(lg, p, obj_is_swap=False):
+    """
+    Benchmark against OLSQ2. Here, `lg` is the line graph on which a quantum simulation circuit is constructed and `p` is the number of Trotter steps in the circuit.
+    """
+    import sys
+
+    sys.path.insert(1, "OLSQ2")
+    from olsq import OLSQ
+    from olsq.device import qcdevice
+
+    qc = heis_circuit(lg, p, cnot_circ=True)
+
+    # Route with line graph routing
+    start = time()
+    rqc = line_graph_route(qc)
+    end = time()
+
+    lgr_result = {
+        "depth": rqc.depth(),
+        "num_swaps": rqc.count_ops()["swap"],
+        "num_qubits": rqc.num_qubits,
+        "wall_clock": end - start,
+    }
+
+    print(lgr_result)
+
+    # Route same circuit with OLSQ2
+    print("Routing the same circuit with OLSQ2")
+    cg = coupling_graph(rqc)
+    cg = nx.convert_node_labels_to_integers(cg)
+
+    mode = "normal"
+    encoding = 1
+    solver = OLSQ(obj_is_swap, mode, encoding)
+
+    qasm = qc.qasm()
+    solver.setprogram(qasm)
+
+    n = cg.number_of_nodes()
+    connection = list(cg.edges())
+    swap_duration = 1
+    device = qcdevice("kagome", n, connection, swap_duration)
+    solver.setdevice(device)
+    use_sabre = True
+    result = solver.solve(use_sabre)
+
+    print(result)

@@ -1,0 +1,18 @@
+name: ligrar
+channels:
+ - defaults
+dependencies:
+  - python=3.8
+  - matplotlib
+  - networkx
+  - numpy
+  - scipy>=1.10
+  - tabulate
+  - pip
+  - pip:
+    - qiskit[visualization]==0.42.1
+    - qiskit_ibmq_provider==0.20.2
+    - qiskit_terra==0.23.3
+    - z3-solver==4.8.15.0
+    - python-sat==0.1.7dev26
+  - jupyter

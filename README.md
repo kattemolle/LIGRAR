@@ -4,13 +4,13 @@ Joris Kattemölle and Seenivasan Hariharan
 
 # Abstract
 
-We showcase and benchmark line-graph qubit routing (https://arxiv.org/abs/2306.05385) by routing random circuits (with fixed virtual graph) and circuits needed for the quantum simulation of the
+We showcase and benchmark line-graph qubit routing by routing random circuits (with fixed virtual graph) and circuits needed for the quantum simulation of the
 Heisenberg antiferromagnet on various graphs. The code implementing line-routing itself is found in
-`line_graph_routing.py` and maps Qiskit quantum circuits to Qiskit quantum circuits. (This can be altered to other circuit libraries with little effort.) We benchmark our results against other methods. The interactive version of this document is `line_graph_routing.ipynb`.
+`line_graph_routing.py` and maps Qiskit quantum circuits to Qiskit quantum circuits. (This can be altered to other circuit libraries with little effort.) We benchmark our results against other methods. The interactive version of this document is `README.ipynb`.
 
 # Contents
 
-1. Requirements
+1. Installation
 1. Kagome to heavy-hex
 1. Complete graph to star graph
 1. Shuriken to heavy-square-octagon
@@ -18,23 +18,30 @@ Heisenberg antiferromagnet on various graphs. The code implementing line-routing
 1. Random line graph to random heavy graph
 1. Benchmarking
 
-# Requirements
+# Installation
 
-This notebook should typically run after installing the following packages with pip (or conda). In a terminal,  run
-```
-pip install qiskit[visualization]
-```
-or 
-```
-pip install 'qiskit[visualization]'
-```
-and 
-```
-pip install netket networkx tabulate
-```
-Note Netket currently needs Python 3.9 (and SciPy $> = $ 1.9.3). Netket is only used to generate patches of the kagome lattice as graphs and not for line-graph routing itself. This notebook was tested with a pip environment that can be recreated with `requirements.txt` by running `pip install -r requirements.txt` (after creating a new environment).
+Download and unpack the repository. Or, if you have git, run
 
-The file `line_graph_routing.py` should be placed in the same folder as the current notebook. 
+``` bash
+git clone https://github.com/kattemolle/LIGRAR.git
+```
+
+in a bash terminal. 
+
+The necessary environment is recreated most easily with conda. Install [anaconda](https://docs.anaconda.com/free/anaconda/install/mac-os/) or [miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html). After that, in a bash terminal, change the directory to the base directory of the LIGRAR repository, and run
+
+```bash
+conda env create --file environment.yml
+conda activate ligrar
+```
+
+Optionally, to run the benchmarks against [OLSQ2](https://github.com/WanHsuanLin/OLSQ2), download and unpack the repository and put it the LIGRAR base folder. Or, in a terminal, change directory the LIGRAR base folder and run
+
+``` bash
+git clone git@github.com:WanHsuanLin/OLSQ2.git
+```
+
+We import line_graph routing and networkx by:
 
 
 ```python
@@ -43,6 +50,7 @@ import networkx as nx
 ```
 
 # Kagome to heavy-hex
+<a id='kagome_to_heavy-hex'></a>
 
 ## Random
 
@@ -57,12 +65,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    725
+    740
 
 
 
     
-![png](figures/output_9_1.png)
+![png](output_9_1.png)
     
 
 
@@ -76,12 +84,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    1257
+    1280
 
 
 
     
-![png](figures/output_11_1.png)
+![png](output_11_1.png)
     
 
 
@@ -98,12 +106,12 @@ lgr.draw_edge_coloring(lg)
 ```
 
     Matching is perfect
-    Edge coloring is not minimal
+    Edge coloring is minimal
 
 
 
     
-![png](figures/output_13_1.png)
+![png](figuresoutput_13_1.png)
     
 
 
@@ -120,13 +128,13 @@ cg = lgr.coupling_graph(qc)
 nx.draw_kamada_kawai(cg)
 ```
 
-    6
-    15
+    5
+    11
 
 
 
     
-![png](figures/output_15_1.png)
+![png](figuresoutput_15_1.png)
     
 
 
@@ -140,12 +148,12 @@ lgr.draw_edge_coloring(lg)
 ```
 
     Matching is perfect
-    Edge coloring is not minimal
+    Edge coloring is minimal
 
 
 
     
-![png](figures/output_17_1.png)
+![png](figuresoutput_17_1.png)
     
 
 
@@ -163,12 +171,12 @@ nx.draw_kamada_kawai(cg, with_labels = 'true')
 ```
 
     4
-    7
+    8
 
 
 
     
-![png](figures/output_19_1.png)
+![png](figuresoutput_19_1.png)
     
 
 
@@ -176,7 +184,7 @@ Show the circuit diagram of the routed circuit, with parameters `al_i`.
 
 
 ```python
-wo = [0, 3, 1, 10, 7, 11, 4, 2, 5, 8, 6, 9] # In the circuit diagram, place qubits in this order.
+wo = [8,3,10,1,0,2,11,6,9,7,5,4] # In the circuit diagram, place qubits in this order.
 qc.draw('latex', wire_order = wo)
 ```
 
@@ -184,12 +192,10 @@ qc.draw('latex', wire_order = wo)
 
 
     
-![png](figures/output_21_0.png)
+![png](figuresoutput_21_0.png)
     
 
 
-
-The fircuit depth can be reduced further by replacement of the initial and final SWAP gates between qubits (10,7) and (8,6) by a relabeling of those qubits. 
 
 # Complete graph to star graph
 
@@ -207,12 +213,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    55
+    59
 
 
 
     
-![png](figures/output_26_1.png)
+![png](figuresoutput_25_1.png)
     
 
 
@@ -226,12 +232,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    105
+    100
 
 
 
     
-![png](figures/output_28_1.png)
+![png](figuresoutput_27_1.png)
     
 
 
@@ -248,12 +254,12 @@ lgr.draw_edge_coloring(lg)
 ```
 
     Matching is perfect
-    Edge coloring is not minimal
+    Edge coloring is minimal
 
 
 
     
-![png](figures/output_30_1.png)
+![png](figuresoutput_29_1.png)
     
 
 
@@ -276,7 +282,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](figures/output_32_1.png)
+![png](figuresoutput_31_1.png)
     
 
 
@@ -298,12 +304,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    508
+    512
 
 
 
     
-![png](figures/output_37_1.png)
+![png](figuresoutput_36_1.png)
     
 
 
@@ -317,12 +323,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    879
+    856
 
 
 
     
-![png](figures/output_39_1.png)
+![png](figuresoutput_38_1.png)
     
 
 
@@ -344,7 +350,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](figures/output_41_1.png)
+![png](figuresoutput_40_1.png)
     
 
 
@@ -367,7 +373,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](figures/output_43_1.png)
+![png](figuresoutput_42_1.png)
     
 
 
@@ -386,7 +392,7 @@ lgr.draw_edge_coloring(lg)
 
 
     
-![png](figures/output_45_1.png)
+![png](figuresoutput_44_1.png)
     
 
 
@@ -407,7 +413,7 @@ nx.draw_kamada_kawai(cg, with_labels = 'true')
 
 
     
-![png](figures/output_46_1.png)
+![png](figuresoutput_45_1.png)
     
 
 
@@ -420,7 +426,7 @@ qc.draw('latex')
 
 
     
-![png](figures/output_47_0.png)
+![png](figuresoutput_46_0.png)
     
 
 
@@ -429,7 +435,7 @@ qc.draw('latex')
 
 
 ```python
-m = 2.5 # For the checkerboard lattice, specify dimentions in nodes by nodes.
+m = 2.5 
 lg = lgr.checkerboard(m, m)
 qc = lgr.random_circuit(lg, 10**4)
 cg = lgr.coupling_graph(qc)
@@ -437,12 +443,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    901
+    860
 
 
 
     
-![png](figures/output_49_1.png)
+![png](figuresoutput_48_1.png)
     
 
 
@@ -456,12 +462,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    1713
+    1644
 
 
 
     
-![png](figures/output_51_1.png)
+![png](figuresoutput_50_1.png)
     
 
 
@@ -483,7 +489,7 @@ lgr.draw_edge_coloring(lg, spectral=True) # Use spactral method to find location
 
 
     
-![png](figures/output_53_1.png)
+![png](figuresoutput_52_1.png)
     
 
 
@@ -506,7 +512,7 @@ nx.draw_kamada_kawai(cg)
 
 
     
-![png](figures/output_55_1.png)
+![png](figuresoutput_54_1.png)
     
 
 
@@ -526,12 +532,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    264
+    267
 
 
 
     
-![png](figures/output_59_1.png)
+![png](figuresoutput_58_1.png)
     
 
 
@@ -545,12 +551,12 @@ nx.draw_kamada_kawai(cg)
 print(qc.depth())
 ```
 
-    503
+    544
 
 
 
     
-![png](figures/output_61_1.png)
+![png](figuresoutput_60_1.png)
     
 
 
@@ -567,12 +573,12 @@ lgr.draw_edge_coloring(lg)
 ```
 
     Matching is perfect
-    Edge coloring is not minimal
+    Edge coloring is minimal
 
 
 
     
-![png](figures/output_63_1.png)
+![png](figuresoutput_62_1.png)
     
 
 
@@ -590,12 +596,12 @@ nx.draw_kamada_kawai(cg)
 ```
 
     8
-    33
+    34
 
 
 
     
-![png](figures/output_65_1.png)
+![png](figuresoutput_64_1.png)
     
 
 
@@ -603,7 +609,7 @@ We do not show the circuit diagram in this case because the routed circuit is no
 
 # Benchmarking
 
-We benchmark line graph routing by performing the above routing tasks (but for larger unit cells) using both line-graph qubit routing and all methods available in qiskit. These methods are 'basic', 'lookahead', 'stochastic', and 'sabre' [1]. 
+We benchmark line graph routing by performing the above routing tasks (but for larger unit cells) using both line-graph qubit routing and all methods available in qiskit. These methods are 'basic', 'lookahead', 'stochastic', and 'sabre' [1]. We also benchmark against a solver-based method (OLSQ2). 
 
 The benchmarking settings are specified by the following options:
 - `name` The name of the virtual graph, either `kagome`, `shuriken` or `complete`.
@@ -627,7 +633,10 @@ We consider the following performance characteristics.
 - `av. time` The average (minimum) wall clock time of the `repetitions` routing runs. 
 - `min. time` The number wall clock run time of the run that achieved the lowest depth.
 
+
+
 [1] Qiskit 0.43.0 documentation, https://qiskit.org/documentation/stubs/qiskit.compiler.transpile.html, accessed 11h May 2023.
+
 [2] https://github.com/Qiskit/qiskit-terra/tree/main/qiskit/transpiler/preset_passmanagers
 
 ### Quantum simulation, kagome and shuriken, agianst SABRE
@@ -639,10 +648,10 @@ import pickle
 
 settings=[]
 for name in ['kagome','shuriken']:
-    for side in range(1,9,2):
-        for p in [1,8,16]:
+    for side in [7]:#range(1,9,2):
+        for p in [16]:#[1,8,16]:
             for optimization_level in range(4):
-                setting={'name':name,
+                setting = {'name':name,
                      'size': (side,side),
                      'circuit_type': 'quantum_simulation',
                      'p': p,
@@ -653,19 +662,19 @@ for name in ['kagome','shuriken']:
                 settings.append(setting)
                                 
 ## Uncomment to rerun benchmarks. This takes a couple of hours.
-#results=[]
+#results = []
 #for setting in settings:
-#    result=lgr.benchmark(**setting)
+#    result = lgr.benchmark(**setting)
 #    results.append(result)
 #    lgr.print_benchmark(result)
-#
+
 #with open('benchmark_data/kagome_shuriken.pkl','wb') as f:
 #    pickle.dump(results,f)
 
-#Load previously obtained results from disk and show them. 
+# Load previously obtained results from disk and show them. 
 import pickle
 with open('benchmark_data/kagome_shuriken.pkl','rb') as f:
-    results=pickle.load(f)
+    results = pickle.load(f)
 
 for result in results:
     lgr.print_benchmark(result)
@@ -2693,7 +2702,7 @@ We see SABRE outperforms the other methods available by default in Qiskit, but n
 
 ### Wall-clock time of line-graph routing
 
-Create a random graph, construct the line graph, create a circuit on the line graph, and put this circuit into line-graph routing.
+Create a random graph, construct the line graph, create a circuit on the line graph, and put this circuit into line-graph routing. The benchmark is carried out on a 2019 MacBook Pro (16 inch, 2,6 GHz 6-Core Intel Core i7, 16 GB RAM) using a single thread. 
 
 
 ```python
@@ -2712,5 +2721,96 @@ print('wall clock time =',end-begin,'(s)')
 
     number of nodes = 1976
     number of gates = 100000
-    wall clock time = 25.030261993408203 (s)
+    wall clock time = 26.690221071243286 (s)
 
+
+### Against solver-based method
+
+We run a small set of benchmarks of line graph routing against the optimal routing method [OLSQ2](https://ieeexplore.ieee.org/abstract/document/10247760). The cell is stand-alone but requires OLSQ2, which is achieved by 
+
+```bash
+git clone git@github.com:WanHsuanLin/OLSQ2.git
+```
+
+The dependencies of OLSQ2 are already contained in `environment.yml`. That is, they were already installed by `conda env create --file environment.yml`. 
+
+We first benchmark line-graph routing against OLSQ2 on the following problem: **route the quantum simulation circuit on a 1x1 patch of the kagome lattice with $p$ trotter steps to quantum hardware whose connectivity is a 1x1 patch of the heavy-hex lattice**. (See the section [kagome to heavy-hex](#kagome_to_heavy-hex).) As the optimization objective of OLSQ2, we set the number of SWAP gates. Setting the number of SWAP gates as the objective reveals the minimum number of SWAPs required. In the current benchmark, we empirically found that this approach does not increase the circuit depth compared to running OLSQ2 with depth as the optimization objective.
+
+We observed that the exact edge coloring produced by `lgr.edge_coloring()`, and consequently the quantum circuits derived from those colorings, are correct but not reproducible across different installations of LIGRAR. To ensure consistency in the routing tasks given to OLSQ2, as compared to those used for line-graph routing and SABRE in earlier sections, we hard-code the edge colorings below. This guarantees they match the ones used in the previous benchmarks exactly. Again, benchmarks are carried out on a 2019 MacBook Pro (16 inch, 2,6 GHz 6-Core Intel Core i7, 16 GB RAM) using a single thread. 
+
+
+```python
+# Uncomment to rerun
+# import line_graph_routing as lgr
+# import networkx as nx
+
+# # For consistency with previous benchmarks
+# kagome11 = nx.Graph([(0, 1, {'color': 2}), (0, 6, {'color': 1}), (0, 3, {'color': 0}), (1, 3, {'color': 1}), (1, 7, {'color': 0}), (2, 5, {'color': 1}), (2, 4, {'color': 0}), (4, 5, {'color': 2}), (4, 7, {'color': 1}), (5, 6, {'color': 0})])
+
+# for p in range(1,7):
+#     lgr.benchmark_against_OLSQ2(kagome11,p,obj_is_swap=True)
+```
+
+The output is stored in `benchmark_data/vs_OLSQ2_kagome11_p=1-6.out` and summarized in the following table. 
+
+| L(G)       | p   | Routing method | depth | n_SWAP | n_qubit | t_tot     |
+| ---        | --- | ---            | ---   | ---    | ---     | ---       |   
+| kagome 1x1 | 1   | line-graph     | 7     | 12     | 12      | 0.01 s    |
+| kagome 1x1 | 1   | OLSQ2          | 6     | 6      | 8       | 12 s      |
+| kagome 1x1 | 2   | line-graph     | 13    | 24     | 12      | 0.01 s    |
+| kagome 1x1 | 2   | OLSQ2          | 11    | 12     | 8       | 40 s      |
+| kagome 1x1 | 3   | line-graph     | 19    | 36     | 12      | 0.01 s    |
+| kagome 1x1 | 3   | OLSQ2          | 16    | 18     | 8       | 100 s     |
+| kagome 1x1 | 4   | line-graph     | 25    | 48     | 12      | 0.02 s    |
+| kagome 1x1 | 4   | OLSQ2          | 21    | 24     | 8       | 198 s     |
+| kagome 1x1 | 5   | line-graph     | 31    | 60     | 12      | 0.02 s    |
+| kagome 1x1 | 5   | OLSQ2          | 26    | 30     | 8       | 297 s     |
+| kagome 1x1 | 6   | line-graph     | 37    | 72     | 12      | 0.03 s    |
+| kagome 1x1 | 6   | OLSQ2          | 31    | 36     | 8       | 416 s     |
+
+For p=[1,...,6], we see line-graph routing has a depth overhead of 1 layer per trotter step compared to the optimal solution found by OLSQ2. 
+
+Next, we route the quantum simulation circuit on a 3x3 patch of the kagome lattice to heavy-hex hardware. Again, we hard-code the colorings for compatibility. We do not put the swap count as the minimization objective because it is more costly. Instead, depth is taken as the optimization objective.  
+
+
+```python
+import networkx as nx
+kagome22 = nx.Graph([((0, 0, 0), (0, 0, 1), {"color": 2}), ((0, 0, 0), (0, 0, 2), {"color": 0}), ((0, 0, 1), (0, 0, 2), {"color": 3}), ((0, 0, 1), (1, 0, 0), {"color": 1}), ((0, 0, 2), (0, 1, 0), {"color": 2}), ((1, 0, 0), (1, 0, 2), {"color": 0}), ((1, 0, 0), (1, 0, 1), {"color": 2}), ((1, 0, 2), (1, 1, 0), {"color": 2}), ((1, 0, 2), (0, 1, 1), {"color": 1}), ((1, 0, 2), (1, 0, 1), {"color": 3}), ((1, 1, 0), (0, 1, 1), {"color": 3}), ((1, 1, 0), (1, 1, 2), {"color": 1}), ((1, 1, 0), (1, 1, 1), {"color": 0}), ((0, 1, 0), (0, 1, 1), {"color": 0}), ((0, 1, 0), (0, 1, 2), {"color": 1}), ((0, 1, 1), (0, 1, 2), {"color": 2}), ((0, 1, 2), (0, 2, 0), {"color": 3}), ((1, 1, 2), (1, 2, 0), {"color": 3}), ((1, 1, 2), (0, 2, 1), {"color": 0}), ((1, 1, 2), (1, 1, 1), {"color": 2}), ((1, 2, 0), (0, 2, 1), {"color": 1}), ((1, 2, 0), (1, 2, 1), {"color": 2}), ((0, 2, 0), (0, 2, 1), {"color": 2}), ((1, 0, 1), (2, 0, 0), {"color": 1}), ((2, 0, 0), (2, 0, 2), {"color": 0}), ((2, 0, 2), (2, 1, 0), {"color": 2}), ((2, 0, 2), (1, 1, 1), {"color": 1}), ((2, 1, 0), (1, 1, 1), {"color": 3}), ((2, 1, 0), (2, 1, 2), {"color": 1}), ((2, 1, 2), (2, 2, 0), {"color": 3}), ((2, 1, 2), (1, 2, 1), {"color": 0}), ((2, 2, 0), (1, 2, 1), {"color": 1})])
+kagome22 = nx.convert_node_labels_to_integers(kagome22) 
+kagome33 = nx.Graph([(0, 1, {'color': 0}), (0, 11, {'color': 1}), (0, 21, {'color': 3}), (1, 30, {'color': 2}), (1, 33, {'color': 1}), (2, 3, {'color': 2}), (2, 29, {'color': 0}), (2, 28, {'color': 1}), (3, 15, {'color': 1}), (3, 28, {'color': 0}), (4, 5, {'color': 1}), (4, 38, {'color': 0}), (4, 13, {'color': 3}), (5, 13, {'color': 2}), (5, 39, {'color': 0}), (6, 7, {'color': 3}), (6, 25, {'color': 0}), (6, 35, {'color': 1}), (6, 23, {'color': 2}), (7, 11, {'color': 0}), (7, 23, {'color': 1}), (8, 9, {'color': 1}), (8, 27, {'color': 0}), (8, 34, {'color': 4}), (9, 31, {'color': 4}), (9, 32, {'color': 0}), (10, 20, {'color': 2}), (10, 24, {'color': 1}), (10, 37, {'color': 0}), (11, 21, {'color': 2}), (12, 13, {'color': 1}), (12, 14, {'color': 3}), (12, 26, {'color': 0}), (12, 17, {'color': 2}), (13, 17, {'color': 0}), (14, 24, {'color': 0}), (14, 25, {'color': 1}), (14, 26, {'color': 2}), (15, 16, {'color': 2}), (15, 20, {'color': 0}), (16, 19, {'color': 0}), (16, 20, {'color': 1}), (16, 26, {'color': 3}), (17, 18, {'color': 1}), (17, 34, {'color': 3}), (18, 35, {'color': 3}), (18, 36, {'color': 2}), (18, 34, {'color': 0}), (19, 26, {'color': 1}), (19, 29, {'color': 2}), (19, 38, {'color': 3}), (21, 36, {'color': 1}), (21, 31, {'color': 0}), (22, 23, {'color': 0}), (22, 37, {'color': 1}), (24, 25, {'color': 3}), (24, 37, {'color': 2}), (25, 35, {'color': 2}), (27, 34, {'color': 2}), (27, 39, {'color': 1}), (29, 38, {'color': 1}), (30, 33, {'color': 0}), (30, 32, {'color': 1}), (31, 32, {'color': 2}), (31, 36, {'color': 3}), (35, 36, {'color': 0})])
+```
+
+
+```python
+# # Uncomment to rerun benchmarks
+#import line_graph_routing as lgr
+# lgr.benchmark_against_OLSQ2(kagome22,1)
+# lgr.benchmark_against_OLSQ2(kagome22,2)
+# lgr.benchmark_against_OLSQ2(kagome22,3)
+# lgr.benchmark_against_OLSQ2(kagome22,4)
+# lgr.benchmark_against_OLSQ2(kagome33,1)
+# lgr.benchmark_against_OLSQ2(kagome33,2)
+```
+
+Results are stored in `benchmark_data` and summarized in the tables below. 
+
+| L(G)       | p   | Routing method | depth | n_SWAP | n_qubit | t_tot     |
+| ---        | --- | ---            | ---   | ---    | ---     | ---       | 
+| kagome 2x2 | 1   | Line-graph     | 13    | 46     | 35      | 0.02 s    |
+| kagome 2x2 | 1   | OLSQ2          | 8     | 53     | 35      | 12 m      |
+| kagome 2x2 | 2   | Line-graph     | 25    | 94     | 35      | 0.02 s    |
+| kagome 2x2 | 2   | OLSQ2          | 16    | 111    | 35      | 2.6 h     |
+| kagome 2x2 | 3   | Line-graph     | 37    | 142    | 35      | 0.04 s    |
+| kagome 2x2 | 3   | OLSQ2          | 24    | 192    | 35      | 25 h      |
+| kagome 2x2 | 4   | Line-graph     | 49    | 190    | 35      | 0.06 s    |
+| kagome 2x2 | 4   | OLSQ2          | >= 30 | ?      | ?       | 100 h     |
+
+
+| L(G)       | p   | Routing method | depth | n_SWAP | n_qubit | t_tot     |
+| ---        | --- | ---            | ---   | ---    | ---     | ---       | 
+| kagome 3x3 | 1   | Line-graph     | 15    | 112    | 68      | 0.05 s    |
+| kagome 3x3 | 1   | OLSQ2          | 9     | 103    | 68      | 7.8 h     |
+| kagome 3x3 | 2   | Line-graph     | 29    | 224    | 68      | 0.06 s    |
+| kagome 3x3 | 2   | OLSQ2          | >= 11 | ?      | ?       | 100 h     |
+
+In the last two lines of the above two tables, OLSQ2 did not complete before the timeout of 100 h. In those cases, the best achieved lower bound on the circuit depth is shown. 

@@ -4,8 +4,5 @@
 #$ -pe openmp 5
 #$ -l h_vmem=2G
 
-conda activate qiskit
-python3 run_benchmark_checkerboard.py
-
-
-
+conda activate ligrar
+python3 benchmark_checkerboard.py

@@ -1,0 +1,44 @@
+{'depth': 29, 'num_swaps': 224, 'num_qubits': 68, 'wall_clock': 0.06055712699890137}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 155, depth: 47
+start adding constraints...
+Trying maximal depth = 11...
+status:unsat, Depth optimization time = 0:00:22.263286, time including preprocessing = 208.894743018
+Trying maximal depth = 16...
+status:unsat, Depth optimization time = 4 days, 6:34:13.974835, time including preprocessing = 349081.866664686
+FAIL to find solution with depth less than  16.
+(:max-memory              6692.85
+ :memory                  408.34
+ :num-allocs              2457594563
+ :rlimit-count            749333967569.00
+ :sat-ate                 69449
+ :sat-backjumps           194146720
+ :sat-backtracks          14063290
+ :sat-bce                 147906
+ :sat-conflicts           208210012
+ :sat-decisions           1025647697
+ :sat-del-clause          201298451
+ :sat-elim-bool-vars-res  863608
+ :sat-elim-clauses        477861
+ :sat-elim-literals       79978070
+ :sat-gc-clause           196589011
+ :sat-minimized-lits      3113093904
+ :sat-mk-clause-2ary      5307950
+ :sat-mk-clause-3ary      6378889
+ :sat-mk-clause-nary      197258894
+ :sat-mk-var              1429966
+ :sat-propagations-2ary   1920035708
+ :sat-propagations-3ary   1534316259
+ :sat-propagations-nary   2193440267
+ :sat-restarts            14544217
+ :sat-scc-elim-binary     65493
+ :sat-scc-elim-vars       5165
+ :sat-subs-resolution     16794
+ :sat-subs-resolution-dyn 1828420736
+ :sat-subsumed            77344
+ :sat-tr                  29151
+ :sat-units               111201
+ :time                    369246.70)
+start adding constraints...
+Trying maximal depth = 16...

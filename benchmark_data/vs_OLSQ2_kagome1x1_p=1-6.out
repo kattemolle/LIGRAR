@@ -1,0 +1,874 @@
+{'depth': 7, 'num_swaps': 12, 'num_qubits': 12, 'wall_clock': 0.0070531368255615234}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 6, depth: 6
+start adding constraints...
+Trying maximal depth = 4...
+status:unsat, Depth optimization time = 0:00:00.239070, time including preprocessing = 1.5325159670001085
+FAIL to find solution with depth less than  4.
+(:max-memory              152.18
+ :memory                  62.58
+ :num-allocs              114842782
+ :rlimit-count            2131456911
+ :sat-backjumps           217
+ :sat-conflicts           218
+ :sat-decisions           943
+ :sat-del-clause          8498
+ :sat-elim-bool-vars-res  3934
+ :sat-elim-clauses        1081
+ :sat-elim-literals       391
+ :sat-minimized-lits      115
+ :sat-mk-clause-2ary      18368
+ :sat-mk-clause-3ary      8214
+ :sat-mk-clause-nary      4746
+ :sat-mk-var              6551
+ :sat-probing-assigned    3
+ :sat-propagations-2ary   138159
+ :sat-propagations-3ary   4431
+ :sat-propagations-nary   5244
+ :sat-restarts            14
+ :sat-scc-elim-binary     99
+ :sat-scc-elim-vars       141
+ :sat-subs-resolution     75
+ :sat-subs-resolution-dyn 32
+ :sat-subsumed            65
+ :sat-units               1228
+ :time                    0.24)
+start adding constraints...
+Trying maximal depth = 6...
+status:sat, Depth optimization time = 0:00:00.363058, time including preprocessing = 4.6171912630002225
+Find minimal depth 5 with swap num 14
+Bound of Trying min swap = 5...
+Using encoding mehtod 1
+status:unsat, optimization time = 0:00:05.998837, time including preprocessing = 11.301019051999901
+Trying min swap = 6...
+Using encoding mehtod 1
+status:sat, optimization time = 0:00:00.637355, time including preprocessing = 11.938776660999793
+SWAP on physical edge (0,1) at time 1
+SWAP on physical edge (0,1) at time 4
+SWAP on physical edge (4,5) at time 1
+SWAP on physical edge (4,5) at time 4
+SWAP on physical edge (6,7) at time 2
+SWAP on physical edge (6,7) at time 4
+Gate 0: cx 2, 4 on qubits 8 and 1 at time 0
+Gate 1: cx 5, 6 on qubits 0 and 7 at time 0
+Gate 2: cx 1, 7 on qubits 5 and 6 at time 0
+Gate 3: cx 0, 3 on qubits 4 and 2 at time 0
+Gate 4: cx 4, 5 on qubits 0 and 1 at time 2
+Gate 5: cx 0, 1 on qubits 5 and 4 at time 2
+Gate 6: cx 2, 5 on qubits 8 and 1 at time 3
+Gate 7: cx 4, 7 on qubits 0 and 7 at time 3
+Gate 8: cx 1, 3 on qubits 4 and 2 at time 3
+Gate 9: cx 0, 6 on qubits 5 and 6 at time 3
+Gate 10: cx 2, 4 on qubits 8 and 1 at time 5
+Gate 11: cx 5, 6 on qubits 0 and 7 at time 5
+Gate 12: cx 1, 7 on qubits 5 and 6 at time 5
+Gate 13: cx 0, 3 on qubits 4 and 2 at time 5
+result- additional SWAP count = 6.
+result- circuit depth = 6.
+(:max-memory              152.18
+ :memory                  62.72
+ :num-allocs              116998689
+ :rlimit-count            2159011842
+ :sat-backjumps           62655
+ :sat-conflicts           62657
+ :sat-decisions           195606
+ :sat-del-clause          126763
+ :sat-elim-bool-vars-res  32559
+ :sat-elim-clauses        28785
+ :sat-elim-literals       69763
+ :sat-gc-clause           20826
+ :sat-minimized-lits      1038688
+ :sat-mk-clause-2ary      141975
+ :sat-mk-clause-3ary      86342
+ :sat-mk-clause-nary      111095
+ :sat-mk-var              54109
+ :sat-probing-assigned    40
+ :sat-propagations-2ary   21552584
+ :sat-propagations-3ary   2082528
+ :sat-propagations-nary   4479207
+ :sat-restarts            5579
+ :sat-scc-elim-binary     1090
+ :sat-scc-elim-vars       448
+ :sat-subs-resolution     1648
+ :sat-subs-resolution-dyn 51082
+ :sat-subsumed            570
+ :sat-units               4570
+ :time                    0.50)
+Total compilation time = 11.954780678000134.
+('OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg q[12];\ncreg c[12];\n\n// moment 0\ncx q[8], q[1];\ncx q[0], q[7];\ncx q[5], q[6];\ncx q[4], q[2];\n\n// moment 1\nSWAP q[0], q[1];\nSWAP q[4], q[5];\n\n// moment 2\ncx q[0], q[1];\ncx q[5], q[4];\nSWAP q[6], q[7];\n\n// moment 3\ncx q[8], q[1];\ncx q[0], q[7];\ncx q[4], q[2];\ncx q[5], q[6];\n\n// moment 4\nSWAP q[0], q[1];\nSWAP q[4], q[5];\nSWAP q[6], q[7];\n\n// moment 5\ncx q[8], q[1];\ncx q[0], q[7];\ncx q[5], q[6];\ncx q[4], q[2];\n\n// measurement\nmeasure q[4]->c[0];\nmeasure q[5]->c[1];\nmeasure q[8]->c[2];\nmeasure q[2]->c[3];\nmeasure q[1]->c[4];\nmeasure q[0]->c[5];\nmeasure q[7]->c[6];\nmeasure q[6]->c[7];\n', [4, 5, 8, 2, 1, 0, 7, 6], [4, 5, 8, 2, 1, 0, 7, 6])
+{'depth': 13, 'num_swaps': 24, 'num_qubits': 12, 'wall_clock': 0.012367010116577148}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 12, depth: 11
+start adding constraints...
+Trying maximal depth = 7...
+status:unsat, Depth optimization time = 0:00:00.321172, time including preprocessing = 3.3297360990000016
+FAIL to find solution with depth less than  7.
+(:max-memory              152.18
+ :memory                  62.52
+ :num-allocs              117609937
+ :rlimit-count            2159935549
+ :sat-backjumps           344
+ :sat-conflicts           345
+ :sat-decisions           1159
+ :sat-del-clause          19879
+ :sat-elim-bool-vars-res  7297
+ :sat-elim-clauses        3561
+ :sat-elim-literals       2629
+ :sat-minimized-lits      341
+ :sat-mk-clause-2ary      35981
+ :sat-mk-clause-3ary      18897
+ :sat-mk-clause-nary      10927
+ :sat-mk-var              13255
+ :sat-probing-assigned    8
+ :sat-propagations-2ary   476085
+ :sat-propagations-3ary   10612
+ :sat-propagations-nary   25638
+ :sat-restarts            11
+ :sat-scc-elim-binary     158
+ :sat-scc-elim-vars       192
+ :sat-subs-resolution     343
+ :sat-subs-resolution-dyn 37
+ :sat-subsumed            176
+ :sat-units               2062
+ :time                    0.32)
+start adding constraints...
+Trying maximal depth = 10...
+status:unsat, Depth optimization time = 0:00:02.328553, time including preprocessing = 11.616427205000036
+Trying maximal depth = 15...
+status:sat, Depth optimization time = 0:00:00.810504, time including preprocessing = 12.427144359000067
+Find minimal depth 11 with swap num 12
+Bound of Trying min swap = 11...
+Using encoding mehtod 1
+status:unsat, optimization time = 0:00:20.208374, time including preprocessing = 38.323946116000116
+Trying min swap = 12...
+Using encoding mehtod 1
+status:sat, optimization time = 0:00:01.981492, time including preprocessing = 40.30613383300033
+SWAP on physical edge (2,4) at time 1
+SWAP on physical edge (2,4) at time 4
+SWAP on physical edge (2,4) at time 7
+SWAP on physical edge (2,4) at time 9
+SWAP on physical edge (3,11) at time 1
+SWAP on physical edge (3,11) at time 4
+SWAP on physical edge (3,11) at time 7
+SWAP on physical edge (3,11) at time 9
+SWAP on physical edge (9,10) at time 1
+SWAP on physical edge (9,10) at time 4
+SWAP on physical edge (9,10) at time 7
+SWAP on physical edge (9,10) at time 9
+Gate 0: cx 2, 4 on qubits 5 and 4 at time 0
+Gate 1: cx 5, 6 on qubits 2 and 3 at time 0
+Gate 2: cx 1, 7 on qubits 10 and 11 at time 0
+Gate 3: cx 0, 3 on qubits 9 and 8 at time 0
+Gate 4: cx 4, 5 on qubits 2 and 4 at time 2
+Gate 5: cx 0, 1 on qubits 10 and 9 at time 2
+Gate 6: cx 2, 5 on qubits 5 and 4 at time 3
+Gate 7: cx 4, 7 on qubits 2 and 3 at time 3
+Gate 8: cx 1, 3 on qubits 9 and 8 at time 3
+Gate 9: cx 0, 6 on qubits 10 and 11 at time 3
+Gate 10: cx 2, 4 on qubits 5 and 4 at time 5
+Gate 11: cx 5, 6 on qubits 2 and 3 at time 5
+Gate 12: cx 1, 7 on qubits 10 and 11 at time 5
+Gate 13: cx 0, 3 on qubits 9 and 8 at time 5
+Gate 14: cx 4, 5 on qubits 4 and 2 at time 6
+Gate 15: cx 0, 1 on qubits 9 and 10 at time 6
+Gate 16: cx 2, 5 on qubits 5 and 4 at time 8
+Gate 17: cx 4, 7 on qubits 2 and 3 at time 8
+Gate 18: cx 1, 3 on qubits 9 and 8 at time 8
+Gate 19: cx 0, 6 on qubits 10 and 11 at time 8
+Gate 20: cx 2, 4 on qubits 5 and 4 at time 10
+Gate 21: cx 5, 6 on qubits 2 and 3 at time 10
+Gate 22: cx 1, 7 on qubits 10 and 11 at time 10
+Gate 23: cx 0, 3 on qubits 9 and 8 at time 10
+result- additional SWAP count = 12.
+result- circuit depth = 11.
+(:max-memory              152.18
+ :memory                  63.02
+ :num-allocs              128664123
+ :rlimit-count            2286437438
+ :sat-ate                 1
+ :sat-backjumps           251585
+ :sat-backtracks          146
+ :sat-bce                 1865
+ :sat-conflicts           251733
+ :sat-decisions           879376
+ :sat-del-clause          451380
+ :sat-elim-bool-vars-res  126666
+ :sat-elim-clauses        32207
+ :sat-elim-literals       88432
+ :sat-gc-clause           114595
+ :sat-minimized-lits      3940304
+ :sat-mk-clause-2ary      573702
+ :sat-mk-clause-3ary      320069
+ :sat-mk-clause-nary      429655
+ :sat-mk-var              212607
+ :sat-probing-assigned    22
+ :sat-propagations-2ary   93153061
+ :sat-propagations-3ary   7874680
+ :sat-propagations-nary   25710068
+ :sat-restarts            22131
+ :sat-scc-elim-binary     6762
+ :sat-scc-elim-vars       3090
+ :sat-subs-resolution     15489
+ :sat-subs-resolution-dyn 283152
+ :sat-subsumed            14127
+ :sat-tr                  329
+ :sat-units               15072
+ :time                    1.43)
+Total compilation time = 40.32619037900031.
+('OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg q[12];\ncreg c[12];\n\n// moment 0\ncx q[5], q[4];\ncx q[2], q[3];\ncx q[10], q[11];\ncx q[9], q[8];\n\n// moment 1\nSWAP q[2], q[4];\nSWAP q[3], q[11];\nSWAP q[9], q[10];\n\n// moment 2\ncx q[2], q[4];\ncx q[10], q[9];\n\n// moment 3\ncx q[5], q[4];\ncx q[2], q[3];\ncx q[9], q[8];\ncx q[10], q[11];\n\n// moment 4\nSWAP q[2], q[4];\nSWAP q[3], q[11];\nSWAP q[9], q[10];\n\n// moment 5\ncx q[5], q[4];\ncx q[2], q[3];\ncx q[10], q[11];\ncx q[9], q[8];\n\n// moment 6\ncx q[4], q[2];\ncx q[9], q[10];\n\n// moment 7\nSWAP q[2], q[4];\nSWAP q[3], q[11];\nSWAP q[9], q[10];\n\n// moment 8\ncx q[5], q[4];\ncx q[2], q[3];\ncx q[9], q[8];\ncx q[10], q[11];\n\n// moment 9\nSWAP q[2], q[4];\nSWAP q[3], q[11];\nSWAP q[9], q[10];\n\n// moment 10\ncx q[5], q[4];\ncx q[2], q[3];\ncx q[10], q[11];\ncx q[9], q[8];\n\n// measurement\nmeasure q[9]->c[0];\nmeasure q[10]->c[1];\nmeasure q[5]->c[2];\nmeasure q[8]->c[3];\nmeasure q[4]->c[4];\nmeasure q[2]->c[5];\nmeasure q[3]->c[6];\nmeasure q[11]->c[7];\n', [9, 10, 5, 8, 4, 2, 3, 11], [9, 10, 5, 8, 4, 2, 3, 11])
+{'depth': 19, 'num_swaps': 36, 'num_qubits': 12, 'wall_clock': 0.014147758483886719}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 18, depth: 16
+start adding constraints...
+Trying maximal depth = 10...
+status:unsat, Depth optimization time = 0:00:00.515016, time including preprocessing = 6.486824297000112
+Trying maximal depth = 15...
+status:unsat, Depth optimization time = 0:00:07.709396, time including preprocessing = 14.196480233999864
+FAIL to find solution with depth less than  15.
+(:max-memory              152.18
+ :memory                  62.56
+ :num-allocs              131033829
+ :rlimit-count            2320416405
+ :sat-backjumps           76905
+ :sat-backtracks          14
+ :sat-conflicts           76921
+ :sat-decisions           232918
+ :sat-del-clause          120343
+ :sat-elim-bool-vars-res  26710
+ :sat-elim-clauses        15321
+ :sat-elim-literals       26793
+ :sat-gc-clause           40888
+ :sat-minimized-lits      1255184
+ :sat-mk-clause-2ary      127339
+ :sat-mk-clause-3ary      72761
+ :sat-mk-clause-nary      115339
+ :sat-mk-var              45412
+ :sat-probing-assigned    6
+ :sat-propagations-2ary   24937644
+ :sat-propagations-3ary   2206285
+ :sat-propagations-nary   8368289
+ :sat-restarts            7440
+ :sat-scc-elim-binary     1139
+ :sat-scc-elim-vars       1018
+ :sat-subs-resolution     1170
+ :sat-subs-resolution-dyn 91200
+ :sat-subsumed            3103
+ :sat-units               2935
+ :time                    7.71)
+start adding constraints...
+Trying maximal depth = 15...
+status:unsat, Depth optimization time = 0:00:07.234118, time including preprocessing = 33.35957305900001
+Trying maximal depth = 20...
+status:sat, Depth optimization time = 0:00:02.813415, time including preprocessing = 36.173377472000084
+Find minimal depth 16 with swap num 26
+Bound of Trying min swap = 17...
+Using encoding mehtod 1
+status:unsat, optimization time = 0:00:41.919465, time including preprocessing = 89.29718690599975
+Trying min swap = 18...
+Using encoding mehtod 1
+status:sat, optimization time = 0:00:10.443621, time including preprocessing = 99.74179171200012
+SWAP on physical edge (2,3) at time 2
+SWAP on physical edge (2,3) at time 4
+SWAP on physical edge (2,3) at time 6
+SWAP on physical edge (2,3) at time 9
+SWAP on physical edge (2,3) at time 12
+SWAP on physical edge (2,3) at time 14
+SWAP on physical edge (4,5) at time 2
+SWAP on physical edge (4,5) at time 4
+SWAP on physical edge (4,5) at time 6
+SWAP on physical edge (4,5) at time 9
+SWAP on physical edge (4,5) at time 12
+SWAP on physical edge (4,5) at time 14
+SWAP on physical edge (10,11) at time 2
+SWAP on physical edge (10,11) at time 4
+SWAP on physical edge (10,11) at time 7
+SWAP on physical edge (10,11) at time 9
+SWAP on physical edge (10,11) at time 11
+SWAP on physical edge (10,11) at time 14
+Gate 0: cx 2, 4 on qubits 9 and 10 at time 0
+Gate 1: cx 5, 6 on qubits 11 and 3 at time 0
+Gate 2: cx 1, 7 on qubits 4 and 2 at time 0
+Gate 3: cx 0, 3 on qubits 5 and 6 at time 0
+Gate 4: cx 4, 5 on qubits 10 and 11 at time 1
+Gate 5: cx 0, 1 on qubits 5 and 4 at time 1
+Gate 6: cx 2, 5 on qubits 9 and 10 at time 3
+Gate 7: cx 4, 7 on qubits 11 and 3 at time 3
+Gate 8: cx 1, 3 on qubits 5 and 6 at time 3
+Gate 9: cx 0, 6 on qubits 4 and 2 at time 3
+Gate 10: cx 2, 4 on qubits 9 and 10 at time 5
+Gate 11: cx 5, 6 on qubits 11 and 3 at time 5
+Gate 12: cx 1, 7 on qubits 4 and 2 at time 5
+Gate 13: cx 0, 3 on qubits 5 and 6 at time 5
+Gate 14: cx 4, 5 on qubits 10 and 11 at time 6
+Gate 15: cx 0, 1 on qubits 4 and 5 at time 7
+Gate 16: cx 2, 5 on qubits 9 and 10 at time 8
+Gate 17: cx 4, 7 on qubits 11 and 3 at time 8
+Gate 18: cx 1, 3 on qubits 5 and 6 at time 8
+Gate 19: cx 0, 6 on qubits 4 and 2 at time 8
+Gate 20: cx 2, 4 on qubits 9 and 10 at time 10
+Gate 21: cx 5, 6 on qubits 11 and 3 at time 10
+Gate 22: cx 1, 7 on qubits 4 and 2 at time 10
+Gate 23: cx 0, 3 on qubits 5 and 6 at time 10
+Gate 24: cx 4, 5 on qubits 11 and 10 at time 12
+Gate 25: cx 0, 1 on qubits 5 and 4 at time 11
+Gate 26: cx 2, 5 on qubits 9 and 10 at time 13
+Gate 27: cx 4, 7 on qubits 11 and 3 at time 13
+Gate 28: cx 1, 3 on qubits 5 and 6 at time 13
+Gate 29: cx 0, 6 on qubits 4 and 2 at time 13
+Gate 30: cx 2, 4 on qubits 9 and 10 at time 15
+Gate 31: cx 5, 6 on qubits 11 and 3 at time 15
+Gate 32: cx 1, 7 on qubits 4 and 2 at time 15
+Gate 33: cx 0, 3 on qubits 5 and 6 at time 15
+result- additional SWAP count = 18.
+result- circuit depth = 16.
+(:max-memory              168.25
+ :memory                  63.73
+ :num-allocs              154517091
+ :rlimit-count            2631130612
+ :sat-ate                 20
+ :sat-backjumps           615119
+ :sat-backtracks          855
+ :sat-bce                 3809
+ :sat-conflicts           615976
+ :sat-decisions           1971061
+ :sat-del-clause          980586
+ :sat-elim-bool-vars-res  220967
+ :sat-elim-clauses        67884
+ :sat-elim-literals       155195
+ :sat-gc-clause           392313
+ :sat-minimized-lits      10239843
+ :sat-mk-clause-2ary      999868
+ :sat-mk-clause-3ary      561416
+ :sat-mk-clause-nary      906479
+ :sat-mk-var              362077
+ :sat-probing-assigned    76
+ :sat-propagations-2ary   235348992
+ :sat-propagations-3ary   21100224
+ :sat-propagations-nary   58992701
+ :sat-restarts            41811
+ :sat-scc-elim-binary     14867
+ :sat-scc-elim-vars       6277
+ :sat-subs-resolution     22452
+ :sat-subs-resolution-dyn 788925
+ :sat-subsumed            30349
+ :sat-tr                  483
+ :sat-units               31799
+ :time                    9.27)
+Total compilation time = 99.77057687599972.
+('OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg q[12];\ncreg c[12];\n\n// moment 0\ncx q[9], q[10];\ncx q[11], q[3];\ncx q[4], q[2];\ncx q[5], q[6];\n\n// moment 1\ncx q[10], q[11];\ncx q[5], q[4];\n\n// moment 2\nSWAP q[2], q[3];\nSWAP q[4], q[5];\nSWAP q[10], q[11];\n\n// moment 3\ncx q[9], q[10];\ncx q[11], q[3];\ncx q[5], q[6];\ncx q[4], q[2];\n\n// moment 4\nSWAP q[2], q[3];\nSWAP q[4], q[5];\nSWAP q[10], q[11];\n\n// moment 5\ncx q[9], q[10];\ncx q[11], q[3];\ncx q[4], q[2];\ncx q[5], q[6];\n\n// moment 6\ncx q[10], q[11];\nSWAP q[2], q[3];\nSWAP q[4], q[5];\n\n// moment 7\ncx q[4], q[5];\nSWAP q[10], q[11];\n\n// moment 8\ncx q[9], q[10];\ncx q[11], q[3];\ncx q[5], q[6];\ncx q[4], q[2];\n\n// moment 9\nSWAP q[2], q[3];\nSWAP q[4], q[5];\nSWAP q[10], q[11];\n\n// moment 10\ncx q[9], q[10];\ncx q[11], q[3];\ncx q[4], q[2];\ncx q[5], q[6];\n\n// moment 11\ncx q[5], q[4];\nSWAP q[10], q[11];\n\n// moment 12\ncx q[11], q[10];\nSWAP q[2], q[3];\nSWAP q[4], q[5];\n\n// moment 13\ncx q[9], q[10];\ncx q[11], q[3];\ncx q[5], q[6];\ncx q[4], q[2];\n\n// moment 14\nSWAP q[2], q[3];\nSWAP q[4], q[5];\nSWAP q[10], q[11];\n\n// moment 15\ncx q[9], q[10];\ncx q[11], q[3];\ncx q[4], q[2];\ncx q[5], q[6];\n\n// measurement\nmeasure q[5]->c[0];\nmeasure q[4]->c[1];\nmeasure q[9]->c[2];\nmeasure q[6]->c[3];\nmeasure q[10]->c[4];\nmeasure q[11]->c[5];\nmeasure q[3]->c[6];\nmeasure q[2]->c[7];\n', [5, 4, 9, 6, 10, 11, 3, 2], [5, 4, 9, 6, 10, 11, 3, 2])
+{'depth': 25, 'num_swaps': 48, 'num_qubits': 12, 'wall_clock': 0.017211198806762695}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 24, depth: 21
+start adding constraints...
+Trying maximal depth = 13...
+status:unsat, Depth optimization time = 0:00:00.383062, time including preprocessing = 9.789837745000114
+Trying maximal depth = 18...
+status:unsat, Depth optimization time = 0:00:01.152356, time including preprocessing = 10.94243386900007
+FAIL to find solution with depth less than  18.
+(:max-memory              168.25
+ :memory                  62.82
+ :num-allocs              157301884
+ :rlimit-count            2637189421
+ :sat-backjumps           9849
+ :sat-backtracks          10
+ :sat-conflicts           9861
+ :sat-decisions           44278
+ :sat-del-clause          75851
+ :sat-elim-bool-vars-res  20840
+ :sat-elim-clauses        23563
+ :sat-elim-literals       16854
+ :sat-minimized-lits      46884
+ :sat-mk-clause-2ary      186812
+ :sat-mk-clause-3ary      88118
+ :sat-mk-clause-nary      48174
+ :sat-mk-var              67962
+ :sat-probing-assigned    4
+ :sat-propagations-2ary   3623212
+ :sat-propagations-3ary   229721
+ :sat-propagations-nary   553991
+ :sat-restarts            906
+ :sat-scc-elim-binary     1061
+ :sat-scc-elim-vars       740
+ :sat-subs-resolution     319
+ :sat-subs-resolution-dyn 3146
+ :sat-subsumed            4046
+ :sat-units               19978
+ :time                    1.15)
+start adding constraints...
+Trying maximal depth = 19...
+status:unsat, Depth optimization time = 0:00:08.817382, time including preprocessing = 38.662589535999814
+Trying maximal depth = 24...
+status:sat, Depth optimization time = 0:00:12.773630, time including preprocessing = 51.436324055000114
+Find minimal depth 20 with swap num 33
+Bound of Trying min swap = 23...
+Using encoding mehtod 1
+status:unsat, optimization time = 0:01:13.321948, time including preprocessing = 179.80773063300012
+Trying min swap = 24...
+Using encoding mehtod 1
+status:sat, optimization time = 0:00:18.486346, time including preprocessing = 198.2955552039998
+SWAP on physical edge (0,1) at time 1
+SWAP on physical edge (0,1) at time 4
+SWAP on physical edge (0,1) at time 7
+SWAP on physical edge (0,1) at time 9
+SWAP on physical edge (0,1) at time 12
+SWAP on physical edge (0,1) at time 14
+SWAP on physical edge (0,1) at time 16
+SWAP on physical edge (0,1) at time 19
+SWAP on physical edge (6,7) at time 2
+SWAP on physical edge (6,7) at time 4
+SWAP on physical edge (6,7) at time 7
+SWAP on physical edge (6,7) at time 9
+SWAP on physical edge (6,7) at time 11
+SWAP on physical edge (6,7) at time 14
+SWAP on physical edge (6,7) at time 17
+SWAP on physical edge (6,7) at time 19
+SWAP on physical edge (8,9) at time 2
+SWAP on physical edge (8,9) at time 4
+SWAP on physical edge (8,9) at time 6
+SWAP on physical edge (8,9) at time 9
+SWAP on physical edge (8,9) at time 12
+SWAP on physical edge (8,9) at time 14
+SWAP on physical edge (8,9) at time 16
+SWAP on physical edge (8,9) at time 19
+Gate 0: cx 2, 4 on qubits 10 and 9 at time 0
+Gate 1: cx 5, 6 on qubits 8 and 1 at time 0
+Gate 2: cx 1, 7 on qubits 7 and 0 at time 0
+Gate 3: cx 0, 3 on qubits 6 and 5 at time 0
+Gate 4: cx 4, 5 on qubits 9 and 8 at time 1
+Gate 5: cx 0, 1 on qubits 6 and 7 at time 1
+Gate 6: cx 2, 5 on qubits 10 and 9 at time 3
+Gate 7: cx 4, 7 on qubits 8 and 1 at time 3
+Gate 8: cx 1, 3 on qubits 6 and 5 at time 3
+Gate 9: cx 0, 6 on qubits 7 and 0 at time 3
+Gate 10: cx 2, 4 on qubits 10 and 9 at time 5
+Gate 11: cx 5, 6 on qubits 8 and 1 at time 5
+Gate 12: cx 1, 7 on qubits 7 and 0 at time 5
+Gate 13: cx 0, 3 on qubits 6 and 5 at time 5
+Gate 14: cx 4, 5 on qubits 8 and 9 at time 7
+Gate 15: cx 0, 1 on qubits 6 and 7 at time 6
+Gate 16: cx 2, 5 on qubits 10 and 9 at time 8
+Gate 17: cx 4, 7 on qubits 8 and 1 at time 8
+Gate 18: cx 1, 3 on qubits 6 and 5 at time 8
+Gate 19: cx 0, 6 on qubits 7 and 0 at time 8
+Gate 20: cx 2, 4 on qubits 10 and 9 at time 10
+Gate 21: cx 5, 6 on qubits 8 and 1 at time 10
+Gate 22: cx 1, 7 on qubits 7 and 0 at time 10
+Gate 23: cx 0, 3 on qubits 6 and 5 at time 10
+Gate 24: cx 4, 5 on qubits 9 and 8 at time 11
+Gate 25: cx 0, 1 on qubits 7 and 6 at time 12
+Gate 26: cx 2, 5 on qubits 10 and 9 at time 13
+Gate 27: cx 4, 7 on qubits 8 and 1 at time 13
+Gate 28: cx 1, 3 on qubits 6 and 5 at time 13
+Gate 29: cx 0, 6 on qubits 7 and 0 at time 13
+Gate 30: cx 2, 4 on qubits 10 and 9 at time 15
+Gate 31: cx 5, 6 on qubits 8 and 1 at time 15
+Gate 32: cx 1, 7 on qubits 7 and 0 at time 15
+Gate 33: cx 0, 3 on qubits 6 and 5 at time 15
+Gate 34: cx 4, 5 on qubits 8 and 9 at time 17
+Gate 35: cx 0, 1 on qubits 6 and 7 at time 16
+Gate 36: cx 2, 5 on qubits 10 and 9 at time 18
+Gate 37: cx 4, 7 on qubits 8 and 1 at time 18
+Gate 38: cx 1, 3 on qubits 6 and 5 at time 18
+Gate 39: cx 0, 6 on qubits 7 and 0 at time 18
+Gate 40: cx 2, 4 on qubits 10 and 9 at time 20
+Gate 41: cx 5, 6 on qubits 8 and 1 at time 20
+Gate 42: cx 1, 7 on qubits 7 and 0 at time 20
+Gate 43: cx 0, 3 on qubits 6 and 5 at time 20
+result- additional SWAP count = 24.
+result- circuit depth = 21.
+(:max-memory              180.65
+ :memory                  64.66
+ :num-allocs              200412461
+ :rlimit-count            3420317093
+ :sat-ate                 314
+ :sat-backjumps           1313711
+ :sat-backtracks          1788
+ :sat-bce                 16440
+ :sat-conflicts           1315502
+ :sat-decisions           4126249
+ :sat-del-clause          2012221
+ :sat-elim-bool-vars-res  353995
+ :sat-elim-clauses        118729
+ :sat-elim-literals       614026
+ :sat-gc-clause           944186
+ :sat-minimized-lits      22127458
+ :sat-mk-clause-2ary      1513943
+ :sat-mk-clause-3ary      859932
+ :sat-mk-clause-nary      1747499
+ :sat-mk-var              527443
+ :sat-probing-assigned    30
+ :sat-propagations-2ary   607912173
+ :sat-propagations-3ary   48803651
+ :sat-propagations-nary   144375660
+ :sat-restarts            112865
+ :sat-scc-elim-binary     23206
+ :sat-scc-elim-vars       11465
+ :sat-subs-resolution     59605
+ :sat-subs-resolution-dyn 1842636
+ :sat-subsumed            81301
+ :sat-tr                  2151
+ :sat-units               46142
+ :time                    16.62)
+Total compilation time = 198.33555065300015.
+('OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg q[12];\ncreg c[12];\n\n// moment 0\ncx q[10], q[9];\ncx q[8], q[1];\ncx q[7], q[0];\ncx q[6], q[5];\n\n// moment 1\ncx q[9], q[8];\ncx q[6], q[7];\nSWAP q[0], q[1];\n\n// moment 2\nSWAP q[6], q[7];\nSWAP q[8], q[9];\n\n// moment 3\ncx q[10], q[9];\ncx q[8], q[1];\ncx q[6], q[5];\ncx q[7], q[0];\n\n// moment 4\nSWAP q[0], q[1];\nSWAP q[6], q[7];\nSWAP q[8], q[9];\n\n// moment 5\ncx q[10], q[9];\ncx q[8], q[1];\ncx q[7], q[0];\ncx q[6], q[5];\n\n// moment 6\ncx q[6], q[7];\nSWAP q[8], q[9];\n\n// moment 7\ncx q[8], q[9];\nSWAP q[0], q[1];\nSWAP q[6], q[7];\n\n// moment 8\ncx q[10], q[9];\ncx q[8], q[1];\ncx q[6], q[5];\ncx q[7], q[0];\n\n// moment 9\nSWAP q[0], q[1];\nSWAP q[6], q[7];\nSWAP q[8], q[9];\n\n// moment 10\ncx q[10], q[9];\ncx q[8], q[1];\ncx q[7], q[0];\ncx q[6], q[5];\n\n// moment 11\ncx q[9], q[8];\nSWAP q[6], q[7];\n\n// moment 12\ncx q[7], q[6];\nSWAP q[0], q[1];\nSWAP q[8], q[9];\n\n// moment 13\ncx q[10], q[9];\ncx q[8], q[1];\ncx q[6], q[5];\ncx q[7], q[0];\n\n// moment 14\nSWAP q[0], q[1];\nSWAP q[6], q[7];\nSWAP q[8], q[9];\n\n// moment 15\ncx q[10], q[9];\ncx q[8], q[1];\ncx q[7], q[0];\ncx q[6], q[5];\n\n// moment 16\ncx q[6], q[7];\nSWAP q[0], q[1];\nSWAP q[8], q[9];\n\n// moment 17\ncx q[8], q[9];\nSWAP q[6], q[7];\n\n// moment 18\ncx q[10], q[9];\ncx q[8], q[1];\ncx q[6], q[5];\ncx q[7], q[0];\n\n// moment 19\nSWAP q[0], q[1];\nSWAP q[6], q[7];\nSWAP q[8], q[9];\n\n// moment 20\ncx q[10], q[9];\ncx q[8], q[1];\ncx q[7], q[0];\ncx q[6], q[5];\n\n// measurement\nmeasure q[6]->c[0];\nmeasure q[7]->c[1];\nmeasure q[10]->c[2];\nmeasure q[5]->c[3];\nmeasure q[9]->c[4];\nmeasure q[8]->c[5];\nmeasure q[1]->c[6];\nmeasure q[0]->c[7];\n', [6, 7, 10, 5, 9, 8, 1, 0], [6, 7, 10, 5, 9, 8, 1, 0])
+{'depth': 31, 'num_swaps': 60, 'num_qubits': 12, 'wall_clock': 0.021010875701904297}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 30, depth: 26
+start adding constraints...
+Trying maximal depth = 16...
+status:unsat, Depth optimization time = 0:00:01.046590, time including preprocessing = 15.323367806000078
+Trying maximal depth = 21...
+status:unsat, Depth optimization time = 0:00:01.582335, time including preprocessing = 16.906135679000272
+FAIL to find solution with depth less than  21.
+(:max-memory              180.65
+ :memory                  63.10
+ :num-allocs              206052538
+ :rlimit-count            3428607203
+ :sat-backjumps           9912
+ :sat-conflicts           9914
+ :sat-decisions           39351
+ :sat-del-clause          147958
+ :sat-elim-bool-vars-res  54763
+ :sat-elim-clauses        17048
+ :sat-elim-literals       8311
+ :sat-minimized-lits      51007
+ :sat-mk-clause-2ary      267419
+ :sat-mk-clause-3ary      147449
+ :sat-mk-clause-nary      91436
+ :sat-mk-var              95248
+ :sat-propagations-2ary   4630420
+ :sat-propagations-3ary   209097
+ :sat-propagations-nary   578722
+ :sat-restarts            1116
+ :sat-scc-elim-binary     2941
+ :sat-scc-elim-vars       1832
+ :sat-subs-resolution     1269
+ :sat-subs-resolution-dyn 3271
+ :sat-subsumed            11372
+ :sat-units               15737
+ :time                    1.58)
+start adding constraints...
+Trying maximal depth = 24...
+status:unsat, Depth optimization time = 0:00:11.467785, time including preprocessing = 57.12141032399995
+Trying maximal depth = 29...
+status:sat, Depth optimization time = 0:00:26.309495, time including preprocessing = 83.43041481699993
+Find minimal depth 25 with swap num 45
+Bound of Trying min swap = 29...
+Using encoding mehtod 1
+status:unsat, optimization time = 0:02:06.619531, time including preprocessing = 278.9685890820001
+Trying min swap = 30...
+Using encoding mehtod 1
+status:sat, optimization time = 0:00:18.410050, time including preprocessing = 297.3809317360001
+SWAP on physical edge (0,7) at time 1
+SWAP on physical edge (0,7) at time 4
+SWAP on physical edge (0,7) at time 7
+SWAP on physical edge (0,7) at time 9
+SWAP on physical edge (0,7) at time 11
+SWAP on physical edge (0,7) at time 14
+SWAP on physical edge (0,7) at time 17
+SWAP on physical edge (0,7) at time 19
+SWAP on physical edge (0,7) at time 22
+SWAP on physical edge (0,7) at time 24
+SWAP on physical edge (1,8) at time 2
+SWAP on physical edge (1,8) at time 4
+SWAP on physical edge (1,8) at time 6
+SWAP on physical edge (1,8) at time 9
+SWAP on physical edge (1,8) at time 11
+SWAP on physical edge (1,8) at time 14
+SWAP on physical edge (1,8) at time 17
+SWAP on physical edge (1,8) at time 19
+SWAP on physical edge (1,8) at time 22
+SWAP on physical edge (1,8) at time 24
+SWAP on physical edge (9,10) at time 2
+SWAP on physical edge (9,10) at time 4
+SWAP on physical edge (9,10) at time 6
+SWAP on physical edge (9,10) at time 9
+SWAP on physical edge (9,10) at time 11
+SWAP on physical edge (9,10) at time 14
+SWAP on physical edge (9,10) at time 16
+SWAP on physical edge (9,10) at time 19
+SWAP on physical edge (9,10) at time 21
+SWAP on physical edge (9,10) at time 24
+Gate 0: cx 2, 4 on qubits 11 and 10 at time 0
+Gate 1: cx 5, 6 on qubits 9 and 8 at time 0
+Gate 2: cx 1, 7 on qubits 0 and 1 at time 0
+Gate 3: cx 0, 3 on qubits 7 and 6 at time 0
+Gate 4: cx 4, 5 on qubits 10 and 9 at time 1
+Gate 5: cx 0, 1 on qubits 0 and 7 at time 2
+Gate 6: cx 2, 5 on qubits 11 and 10 at time 3
+Gate 7: cx 4, 7 on qubits 9 and 8 at time 3
+Gate 8: cx 1, 3 on qubits 7 and 6 at time 3
+Gate 9: cx 0, 6 on qubits 0 and 1 at time 3
+Gate 10: cx 2, 4 on qubits 11 and 10 at time 5
+Gate 11: cx 5, 6 on qubits 9 and 8 at time 5
+Gate 12: cx 1, 7 on qubits 0 and 1 at time 5
+Gate 13: cx 0, 3 on qubits 7 and 6 at time 5
+Gate 14: cx 4, 5 on qubits 9 and 10 at time 7
+Gate 15: cx 0, 1 on qubits 7 and 0 at time 6
+Gate 16: cx 2, 5 on qubits 11 and 10 at time 8
+Gate 17: cx 4, 7 on qubits 9 and 8 at time 8
+Gate 18: cx 1, 3 on qubits 7 and 6 at time 8
+Gate 19: cx 0, 6 on qubits 0 and 1 at time 8
+Gate 20: cx 2, 4 on qubits 11 and 10 at time 10
+Gate 21: cx 5, 6 on qubits 9 and 8 at time 10
+Gate 22: cx 1, 7 on qubits 0 and 1 at time 10
+Gate 23: cx 0, 3 on qubits 7 and 6 at time 10
+Gate 24: cx 4, 5 on qubits 9 and 10 at time 12
+Gate 25: cx 0, 1 on qubits 0 and 7 at time 12
+Gate 26: cx 2, 5 on qubits 11 and 10 at time 13
+Gate 27: cx 4, 7 on qubits 9 and 8 at time 13
+Gate 28: cx 1, 3 on qubits 7 and 6 at time 13
+Gate 29: cx 0, 6 on qubits 0 and 1 at time 13
+Gate 30: cx 2, 4 on qubits 11 and 10 at time 15
+Gate 31: cx 5, 6 on qubits 9 and 8 at time 15
+Gate 32: cx 1, 7 on qubits 0 and 1 at time 15
+Gate 33: cx 0, 3 on qubits 7 and 6 at time 15
+Gate 34: cx 4, 5 on qubits 9 and 10 at time 17
+Gate 35: cx 0, 1 on qubits 7 and 0 at time 16
+Gate 36: cx 2, 5 on qubits 11 and 10 at time 18
+Gate 37: cx 4, 7 on qubits 9 and 8 at time 18
+Gate 38: cx 1, 3 on qubits 7 and 6 at time 18
+Gate 39: cx 0, 6 on qubits 0 and 1 at time 18
+Gate 40: cx 2, 4 on qubits 11 and 10 at time 20
+Gate 41: cx 5, 6 on qubits 9 and 8 at time 20
+Gate 42: cx 1, 7 on qubits 0 and 1 at time 20
+Gate 43: cx 0, 3 on qubits 7 and 6 at time 20
+Gate 44: cx 4, 5 on qubits 9 and 10 at time 22
+Gate 45: cx 0, 1 on qubits 7 and 0 at time 21
+Gate 46: cx 2, 5 on qubits 11 and 10 at time 23
+Gate 47: cx 4, 7 on qubits 9 and 8 at time 23
+Gate 48: cx 1, 3 on qubits 7 and 6 at time 23
+Gate 49: cx 0, 6 on qubits 0 and 1 at time 23
+Gate 50: cx 2, 4 on qubits 11 and 10 at time 25
+Gate 51: cx 5, 6 on qubits 9 and 8 at time 25
+Gate 52: cx 1, 7 on qubits 0 and 1 at time 25
+Gate 53: cx 0, 3 on qubits 7 and 6 at time 25
+result- additional SWAP count = 30.
+result- circuit depth = 26.
+(:max-memory              244.04
+ :memory                  100.39
+ :num-allocs              266117673
+ :rlimit-count            4561390859.00
+ :sat-ate                 240
+ :sat-backjumps           1868901
+ :sat-backtracks          2976
+ :sat-bce                 19873
+ :sat-conflicts           1871880
+ :sat-decisions           5802542
+ :sat-del-clause          2854644
+ :sat-elim-bool-vars-res  461536
+ :sat-elim-clauses        165125
+ :sat-elim-literals       718000
+ :sat-gc-clause           1487827
+ :sat-minimized-lits      31464871
+ :sat-mk-clause-2ary      2137383
+ :sat-mk-clause-3ary      1173304
+ :sat-mk-clause-nary      2417255
+ :sat-mk-var              737123
+ :sat-probing-assigned    128
+ :sat-propagations-2ary   891782715
+ :sat-propagations-3ary   73276183
+ :sat-propagations-nary   187561632
+ :sat-restarts            151680
+ :sat-scc-elim-binary     23851
+ :sat-scc-elim-vars       13944
+ :sat-subs-resolution     74501
+ :sat-subs-resolution-dyn 2867592
+ :sat-subsumed            113178
+ :sat-tr                  3292
+ :sat-units               122080
+ :time                    15.52)
+Total compilation time = 297.44221424800025.
+('OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg q[12];\ncreg c[12];\n\n// moment 0\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 1\ncx q[10], q[9];\nSWAP q[0], q[7];\n\n// moment 2\ncx q[0], q[7];\nSWAP q[1], q[8];\nSWAP q[9], q[10];\n\n// moment 3\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 4\nSWAP q[0], q[7];\nSWAP q[1], q[8];\nSWAP q[9], q[10];\n\n// moment 5\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 6\ncx q[7], q[0];\nSWAP q[1], q[8];\nSWAP q[9], q[10];\n\n// moment 7\ncx q[9], q[10];\nSWAP q[0], q[7];\n\n// moment 8\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 9\nSWAP q[0], q[7];\nSWAP q[1], q[8];\nSWAP q[9], q[10];\n\n// moment 10\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 11\nSWAP q[0], q[7];\nSWAP q[1], q[8];\nSWAP q[9], q[10];\n\n// moment 12\ncx q[9], q[10];\ncx q[0], q[7];\n\n// moment 13\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 14\nSWAP q[0], q[7];\nSWAP q[1], q[8];\nSWAP q[9], q[10];\n\n// moment 15\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 16\ncx q[7], q[0];\nSWAP q[9], q[10];\n\n// moment 17\ncx q[9], q[10];\nSWAP q[0], q[7];\nSWAP q[1], q[8];\n\n// moment 18\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 19\nSWAP q[0], q[7];\nSWAP q[1], q[8];\nSWAP q[9], q[10];\n\n// moment 20\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 21\ncx q[7], q[0];\nSWAP q[9], q[10];\n\n// moment 22\ncx q[9], q[10];\nSWAP q[0], q[7];\nSWAP q[1], q[8];\n\n// moment 23\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 24\nSWAP q[0], q[7];\nSWAP q[1], q[8];\nSWAP q[9], q[10];\n\n// moment 25\ncx q[11], q[10];\ncx q[9], q[8];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// measurement\nmeasure q[7]->c[0];\nmeasure q[0]->c[1];\nmeasure q[11]->c[2];\nmeasure q[6]->c[3];\nmeasure q[10]->c[4];\nmeasure q[9]->c[5];\nmeasure q[8]->c[6];\nmeasure q[1]->c[7];\n', [7, 0, 11, 6, 10, 9, 8, 1], [7, 0, 11, 6, 10, 9, 8, 1])
+{'depth': 37, 'num_swaps': 72, 'num_qubits': 12, 'wall_clock': 0.025030851364135742}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 36, depth: 31
+start adding constraints...
+Trying maximal depth = 19...
+status:unsat, Depth optimization time = 0:00:01.410842, time including preprocessing = 20.782823809000092
+Trying maximal depth = 24...
+status:unsat, Depth optimization time = 0:00:01.780849, time including preprocessing = 22.564145719999942
+FAIL to find solution with depth less than  24.
+(:max-memory              244.04
+ :memory                  65.07
+ :num-allocs              274401962
+ :rlimit-count            4570630101.00
+ :sat-backjumps           7740
+ :sat-conflicts           7742
+ :sat-decisions           41554
+ :sat-del-clause          226649
+ :sat-elim-bool-vars-res  70506
+ :sat-elim-clauses        44724
+ :sat-elim-literals       29907
+ :sat-minimized-lits      28148
+ :sat-mk-clause-2ary      350001
+ :sat-mk-clause-3ary      195032
+ :sat-mk-clause-nary      115965
+ :sat-mk-var              122854
+ :sat-probing-assigned    41
+ :sat-propagations-2ary   4696134
+ :sat-propagations-3ary   223962
+ :sat-propagations-nary   461594
+ :sat-restarts            780
+ :sat-scc-elim-binary     5367
+ :sat-scc-elim-vars       3298
+ :sat-subs-resolution     2050
+ :sat-subs-resolution-dyn 2802
+ :sat-subsumed            20318
+ :sat-units               21713
+ :time                    1.78)
+start adding constraints...
+Trying maximal depth = 28...
+status:unsat, Depth optimization time = 0:00:14.971917, time including preprocessing = 76.1629715160002
+Trying maximal depth = 33...
+status:sat, Depth optimization time = 0:00:42.334762, time including preprocessing = 118.49696179000011
+Find minimal depth 30 with swap num 59
+Bound of Trying min swap = 35...
+Using encoding mehtod 1
+status:unsat, optimization time = 0:02:52.417288, time including preprocessing = 384.97558269699994
+Trying min swap = 36...
+Using encoding mehtod 1
+status:sat, optimization time = 0:00:31.181211, time including preprocessing = 416.1624829719999
+SWAP on physical edge (0,7) at time 2
+SWAP on physical edge (0,7) at time 4
+SWAP on physical edge (0,7) at time 6
+SWAP on physical edge (0,7) at time 9
+SWAP on physical edge (0,7) at time 12
+SWAP on physical edge (0,7) at time 14
+SWAP on physical edge (0,7) at time 16
+SWAP on physical edge (0,7) at time 19
+SWAP on physical edge (0,7) at time 22
+SWAP on physical edge (0,7) at time 24
+SWAP on physical edge (0,7) at time 26
+SWAP on physical edge (0,7) at time 29
+SWAP on physical edge (2,4) at time 2
+SWAP on physical edge (2,4) at time 4
+SWAP on physical edge (2,4) at time 6
+SWAP on physical edge (2,4) at time 9
+SWAP on physical edge (2,4) at time 12
+SWAP on physical edge (2,4) at time 14
+SWAP on physical edge (2,4) at time 17
+SWAP on physical edge (2,4) at time 19
+SWAP on physical edge (2,4) at time 21
+SWAP on physical edge (2,4) at time 24
+SWAP on physical edge (2,4) at time 27
+SWAP on physical edge (2,4) at time 29
+SWAP on physical edge (5,6) at time 2
+SWAP on physical edge (5,6) at time 4
+SWAP on physical edge (5,6) at time 7
+SWAP on physical edge (5,6) at time 9
+SWAP on physical edge (5,6) at time 11
+SWAP on physical edge (5,6) at time 14
+SWAP on physical edge (5,6) at time 17
+SWAP on physical edge (5,6) at time 19
+SWAP on physical edge (5,6) at time 22
+SWAP on physical edge (5,6) at time 24
+SWAP on physical edge (5,6) at time 26
+SWAP on physical edge (5,6) at time 29
+Gate 0: cx 2, 4 on qubits 3 and 2 at time 0
+Gate 1: cx 5, 6 on qubits 4 and 5 at time 0
+Gate 2: cx 1, 7 on qubits 7 and 6 at time 0
+Gate 3: cx 0, 3 on qubits 0 and 1 at time 0
+Gate 4: cx 4, 5 on qubits 2 and 4 at time 1
+Gate 5: cx 0, 1 on qubits 0 and 7 at time 1
+Gate 6: cx 2, 5 on qubits 3 and 2 at time 3
+Gate 7: cx 4, 7 on qubits 4 and 5 at time 3
+Gate 8: cx 1, 3 on qubits 0 and 1 at time 3
+Gate 9: cx 0, 6 on qubits 7 and 6 at time 3
+Gate 10: cx 2, 4 on qubits 3 and 2 at time 5
+Gate 11: cx 5, 6 on qubits 4 and 5 at time 5
+Gate 12: cx 1, 7 on qubits 7 and 6 at time 5
+Gate 13: cx 0, 3 on qubits 0 and 1 at time 5
+Gate 14: cx 4, 5 on qubits 4 and 2 at time 7
+Gate 15: cx 0, 1 on qubits 7 and 0 at time 7
+Gate 16: cx 2, 5 on qubits 3 and 2 at time 8
+Gate 17: cx 4, 7 on qubits 4 and 5 at time 8
+Gate 18: cx 1, 3 on qubits 0 and 1 at time 8
+Gate 19: cx 0, 6 on qubits 7 and 6 at time 8
+Gate 20: cx 2, 4 on qubits 3 and 2 at time 10
+Gate 21: cx 5, 6 on qubits 4 and 5 at time 10
+Gate 22: cx 1, 7 on qubits 7 and 6 at time 10
+Gate 23: cx 0, 3 on qubits 0 and 1 at time 10
+Gate 24: cx 4, 5 on qubits 2 and 4 at time 11
+Gate 25: cx 0, 1 on qubits 0 and 7 at time 11
+Gate 26: cx 2, 5 on qubits 3 and 2 at time 13
+Gate 27: cx 4, 7 on qubits 4 and 5 at time 13
+Gate 28: cx 1, 3 on qubits 0 and 1 at time 13
+Gate 29: cx 0, 6 on qubits 7 and 6 at time 13
+Gate 30: cx 2, 4 on qubits 3 and 2 at time 15
+Gate 31: cx 5, 6 on qubits 4 and 5 at time 15
+Gate 32: cx 1, 7 on qubits 7 and 6 at time 15
+Gate 33: cx 0, 3 on qubits 0 and 1 at time 15
+Gate 34: cx 4, 5 on qubits 2 and 4 at time 16
+Gate 35: cx 0, 1 on qubits 7 and 0 at time 17
+Gate 36: cx 2, 5 on qubits 3 and 2 at time 18
+Gate 37: cx 4, 7 on qubits 4 and 5 at time 18
+Gate 38: cx 1, 3 on qubits 0 and 1 at time 18
+Gate 39: cx 0, 6 on qubits 7 and 6 at time 18
+Gate 40: cx 2, 4 on qubits 3 and 2 at time 20
+Gate 41: cx 5, 6 on qubits 4 and 5 at time 20
+Gate 42: cx 1, 7 on qubits 7 and 6 at time 20
+Gate 43: cx 0, 3 on qubits 0 and 1 at time 20
+Gate 44: cx 4, 5 on qubits 4 and 2 at time 22
+Gate 45: cx 0, 1 on qubits 0 and 7 at time 21
+Gate 46: cx 2, 5 on qubits 3 and 2 at time 23
+Gate 47: cx 4, 7 on qubits 4 and 5 at time 23
+Gate 48: cx 1, 3 on qubits 0 and 1 at time 23
+Gate 49: cx 0, 6 on qubits 7 and 6 at time 23
+Gate 50: cx 2, 4 on qubits 3 and 2 at time 25
+Gate 51: cx 5, 6 on qubits 4 and 5 at time 25
+Gate 52: cx 1, 7 on qubits 7 and 6 at time 25
+Gate 53: cx 0, 3 on qubits 0 and 1 at time 25
+Gate 54: cx 4, 5 on qubits 2 and 4 at time 26
+Gate 55: cx 0, 1 on qubits 7 and 0 at time 27
+Gate 56: cx 2, 5 on qubits 3 and 2 at time 28
+Gate 57: cx 4, 7 on qubits 4 and 5 at time 28
+Gate 58: cx 1, 3 on qubits 0 and 1 at time 28
+Gate 59: cx 0, 6 on qubits 7 and 6 at time 28
+Gate 60: cx 2, 4 on qubits 3 and 2 at time 30
+Gate 61: cx 5, 6 on qubits 4 and 5 at time 30
+Gate 62: cx 1, 7 on qubits 7 and 6 at time 30
+Gate 63: cx 0, 3 on qubits 0 and 1 at time 30
+result- additional SWAP count = 36.
+result- circuit depth = 31.
+(:max-memory              265.13
+ :memory                  108.01
+ :num-allocs              353130366
+ :rlimit-count            6241767208.00
+ :sat-ate                 1440
+ :sat-backjumps           2548340
+ :sat-backtracks          6756
+ :sat-bce                 47174
+ :sat-conflicts           2555099
+ :sat-decisions           8112348
+ :sat-del-clause          3885038
+ :sat-elim-bool-vars-res  530385
+ :sat-elim-clauses        219062
+ :sat-elim-literals       1134395
+ :sat-gc-clause           2150380
+ :sat-minimized-lits      42807922
+ :sat-mk-clause-2ary      2465741
+ :sat-mk-clause-3ary      1349184
+ :sat-mk-clause-nary      3214988
+ :sat-mk-var              832064
+ :sat-probing-assigned    220
+ :sat-propagations-2ary   1309508549
+ :sat-propagations-3ary   108235348
+ :sat-propagations-nary   266312777
+ :sat-restarts            206775
+ :sat-scc-elim-binary     27979
+ :sat-scc-elim-vars       16113
+ :sat-subs-resolution     114293
+ :sat-subs-resolution-dyn 4221470
+ :sat-subsumed            174923
+ :sat-tr                  4661
+ :sat-units               152886
+ :time                    27.06)
+Total compilation time = 416.2320135340001.
+('OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg q[12];\ncreg c[12];\n\n// moment 0\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 1\ncx q[2], q[4];\ncx q[0], q[7];\n\n// moment 2\nSWAP q[0], q[7];\nSWAP q[2], q[4];\nSWAP q[5], q[6];\n\n// moment 3\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 4\nSWAP q[0], q[7];\nSWAP q[2], q[4];\nSWAP q[5], q[6];\n\n// moment 5\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 6\nSWAP q[0], q[7];\nSWAP q[2], q[4];\n\n// moment 7\ncx q[4], q[2];\ncx q[7], q[0];\nSWAP q[5], q[6];\n\n// moment 8\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 9\nSWAP q[0], q[7];\nSWAP q[2], q[4];\nSWAP q[5], q[6];\n\n// moment 10\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 11\ncx q[2], q[4];\ncx q[0], q[7];\nSWAP q[5], q[6];\n\n// moment 12\nSWAP q[0], q[7];\nSWAP q[2], q[4];\n\n// moment 13\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 14\nSWAP q[0], q[7];\nSWAP q[2], q[4];\nSWAP q[5], q[6];\n\n// moment 15\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 16\ncx q[2], q[4];\nSWAP q[0], q[7];\n\n// moment 17\ncx q[7], q[0];\nSWAP q[2], q[4];\nSWAP q[5], q[6];\n\n// moment 18\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 19\nSWAP q[0], q[7];\nSWAP q[2], q[4];\nSWAP q[5], q[6];\n\n// moment 20\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 21\ncx q[0], q[7];\nSWAP q[2], q[4];\n\n// moment 22\ncx q[4], q[2];\nSWAP q[0], q[7];\nSWAP q[5], q[6];\n\n// moment 23\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 24\nSWAP q[0], q[7];\nSWAP q[2], q[4];\nSWAP q[5], q[6];\n\n// moment 25\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// moment 26\ncx q[2], q[4];\nSWAP q[0], q[7];\nSWAP q[5], q[6];\n\n// moment 27\ncx q[7], q[0];\nSWAP q[2], q[4];\n\n// moment 28\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[0], q[1];\ncx q[7], q[6];\n\n// moment 29\nSWAP q[0], q[7];\nSWAP q[2], q[4];\nSWAP q[5], q[6];\n\n// moment 30\ncx q[3], q[2];\ncx q[4], q[5];\ncx q[7], q[6];\ncx q[0], q[1];\n\n// measurement\nmeasure q[0]->c[0];\nmeasure q[7]->c[1];\nmeasure q[3]->c[2];\nmeasure q[1]->c[3];\nmeasure q[2]->c[4];\nmeasure q[4]->c[5];\nmeasure q[5]->c[6];\nmeasure q[6]->c[7];\n', [0, 7, 3, 1, 2, 4, 5, 6], [0, 7, 3, 1, 2, 4, 5, 6])

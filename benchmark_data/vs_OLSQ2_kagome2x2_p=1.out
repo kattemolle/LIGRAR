@@ -1,0 +1,198 @@
+{'depth': 13, 'num_swaps': 46, 'num_qubits': 35, 'wall_clock': 0.018347978591918945}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 31, depth: 24
+start adding constraints...
+Trying maximal depth = 5...
+status:unknown, Depth optimization time = 0:00:00.439078, time including preprocessing = 8.435751889
+FAIL to find solution with depth less than  5.
+(:max-memory            112.62
+ :memory                37.15
+ :num-allocs            1495236
+ :rlimit-count          1442372
+ :sat-backjumps         1
+ :sat-conflicts         1
+ :sat-decisions         4
+ :sat-del-clause        3
+ :sat-elim-literals     3
+ :sat-mk-clause-2ary    177256
+ :sat-mk-clause-3ary    77897
+ :sat-mk-clause-nary    15817
+ :sat-mk-var            67050
+ :sat-propagations-2ary 2132
+ :sat-propagations-3ary 13
+ :sat-propagations-nary 1
+ :sat-units             1
+ :time                  0.44)
+start adding constraints...
+{'depth': 13, 'num_swaps': 46, 'num_qubits': 35, 'wall_clock': 0.014702081680297852}
+Routing the same circuit with OLSQ2
+Using normal mode...
+Run heuristic compiler sabre to get upper bound for SWAP: 31, depth: 24
+start adding constraints...
+Trying maximal depth = 5...
+status:unsat, Depth optimization time = 0:00:01.188486, time including preprocessing = 9.50886856
+FAIL to find solution with depth less than  5.
+(:max-memory              112.62
+ :memory                  37.15
+ :num-allocs              4163762
+ :rlimit-count            4270869
+ :sat-backjumps           895
+ :sat-conflicts           896
+ :sat-decisions           11081
+ :sat-del-clause          94366
+ :sat-elim-bool-vars-res  42370
+ :sat-elim-clauses        7266
+ :sat-elim-literals       4741
+ :sat-minimized-lits      5491
+ :sat-mk-clause-2ary      188068
+ :sat-mk-clause-3ary      106745
+ :sat-mk-clause-nary      52680
+ :sat-mk-var              67050
+ :sat-probing-assigned    4
+ :sat-propagations-2ary   1899067
+ :sat-propagations-3ary   47043
+ :sat-propagations-nary   66341
+ :sat-restarts            55
+ :sat-scc-elim-binary     2270
+ :sat-scc-elim-vars       863
+ :sat-subs-resolution     3002
+ :sat-subs-resolution-dyn 78
+ :sat-subsumed            662
+ :sat-units               7362
+ :time                    1.19)
+start adding constraints...
+Trying maximal depth = 7...
+status:unsat, Depth optimization time = 0:00:11.927127, time including preprocessing = 51.493552419000004
+Trying maximal depth = 12...
+status:sat, Depth optimization time = 0:00:43.424398, time including preprocessing = 94.91728666399999
+Find minimal depth 8 with swap num 26
+SWAP on physical edge (0,1) at time 6
+SWAP on physical edge (0,2) at time 3
+SWAP on physical edge (1,29) at time 1
+SWAP on physical edge (1,29) at time 2
+SWAP on physical edge (2,28) at time 2
+SWAP on physical edge (3,4) at time 2
+SWAP on physical edge (3,4) at time 4
+SWAP on physical edge (3,4) at time 7
+SWAP on physical edge (3,34) at time 3
+SWAP on physical edge (3,34) at time 6
+SWAP on physical edge (5,15) at time 4
+SWAP on physical edge (5,15) at time 6
+SWAP on physical edge (6,7) at time 1
+SWAP on physical edge (6,9) at time 3
+SWAP on physical edge (6,9) at time 6
+SWAP on physical edge (7,8) at time 2
+SWAP on physical edge (7,8) at time 6
+SWAP on physical edge (7,8) at time 7
+SWAP on physical edge (8,13) at time 3
+SWAP on physical edge (8,13) at time 5
+SWAP on physical edge (9,23) at time 2
+SWAP on physical edge (10,27) at time 5
+SWAP on physical edge (11,12) at time 3
+SWAP on physical edge (11,12) at time 6
+SWAP on physical edge (11,16) at time 2
+SWAP on physical edge (11,16) at time 7
+SWAP on physical edge (12,13) at time 2
+SWAP on physical edge (14,15) at time 5
+SWAP on physical edge (16,17) at time 1
+SWAP on physical edge (16,17) at time 6
+SWAP on physical edge (17,18) at time 3
+SWAP on physical edge (17,19) at time 2
+SWAP on physical edge (18,33) at time 7
+SWAP on physical edge (19,34) at time 1
+SWAP on physical edge (20,21) at time 4
+SWAP on physical edge (20,28) at time 1
+SWAP on physical edge (20,28) at time 5
+SWAP on physical edge (21,22) at time 2
+SWAP on physical edge (21,22) at time 5
+SWAP on physical edge (21,23) at time 1
+SWAP on physical edge (21,23) at time 6
+SWAP on physical edge (24,29) at time 3
+SWAP on physical edge (24,29) at time 5
+SWAP on physical edge (25,26) at time 2
+SWAP on physical edge (25,30) at time 3
+SWAP on physical edge (25,30) at time 5
+SWAP on physical edge (30,31) at time 1
+SWAP on physical edge (30,31) at time 4
+SWAP on physical edge (30,31) at time 6
+SWAP on physical edge (32,33) at time 2
+SWAP on physical edge (32,33) at time 4
+SWAP on physical edge (32,33) at time 5
+SWAP on physical edge (32,33) at time 6
+Gate 0: cx 16, 17 on qubits 21 and 23 at time 0
+Gate 1: cx 15, 19 on qubits 1 and 0 at time 0
+Gate 2: cx 9, 14 on qubits 25 and 30 at time 0
+Gate 3: cx 7, 10 on qubits 10 and 27 at time 0
+Gate 4: cx 4, 8 on qubits 16 and 11 at time 0
+Gate 5: cx 3, 5 on qubits 12 and 13 at time 0
+Gate 6: cx 0, 2 on qubits 3 and 4 at time 0
+Gate 7: cx 19, 20 on qubits 2 and 0 at time 4
+Gate 8: cx 11, 12 on qubits 18 and 33 at time 0
+Gate 9: cx 10, 18 on qubits 27 and 22 at time 1
+Gate 10: cx 9, 13 on qubits 25 and 24 at time 1
+Gate 11: cx 7, 8 on qubits 10 and 11 at time 1
+Gate 12: cx 5, 6 on qubits 13 and 8 at time 1
+Gate 13: cx 1, 2 on qubits 5 and 4 at time 1
+Gate 14: cx 17, 18 on qubits 22 and 21 at time 3
+Gate 15: cx 13, 15 on qubits 29 and 1 at time 4
+Gate 16: cx 12, 14 on qubits 32 and 31 at time 3
+Gate 17: cx 9, 10 on qubits 26 and 27 at time 3
+Gate 18: cx 8, 11 on qubits 16 and 17 at time 4
+Gate 19: cx 5, 7 on qubits 11 and 10 at time 4
+Gate 20: cx 3, 6 on qubits 8 and 7 at time 4
+Gate 21: cx 2, 4 on qubits 34 and 19 at time 4
+Gate 22: cx 0, 1 on qubits 4 and 5 at time 3
+Gate 23: cx 18, 19 on qubits 28 and 2 at time 6
+Gate 24: cx 15, 20 on qubits 1 and 0 at time 5
+Gate 25: cx 13, 14 on qubits 24 and 25 at time 6
+Gate 26: cx 10, 17 on qubits 27 and 22 at time 4
+Gate 27: cx 7, 9 on qubits 27 and 26 at time 6
+Gate 28: cx 6, 16 on qubits 7 and 6 at time 5
+Gate 29: cx 5, 8 on qubits 11 and 16 at time 5
+Gate 30: cx 4, 11 on qubits 19 and 17 at time 5
+Gate 31: cx 1, 3 on qubits 14 and 13 at time 6
+Gate 32: cx 16, 17 on qubits 9 and 23 at time 7
+Gate 33: cx 15, 19 on qubits 0 and 2 at time 7
+Gate 34: cx 9, 14 on qubits 26 and 25 at time 7
+Gate 35: cx 7, 10 on qubits 27 and 10 at time 7
+Gate 36: cx 4, 8 on qubits 19 and 17 at time 7
+Gate 37: cx 3, 5 on qubits 13 and 12 at time 7
+Gate 38: cx 0, 2 on qubits 3 and 34 at time 5
+result- additional SWAP count = 53.
+result- circuit depth = 8.
+(:max-memory              425.87
+ :memory                  121.22
+ :num-allocs              143269752
+ :rlimit-count            3788864490
+ :sat-ate                 4208
+ :sat-backjumps           2648722
+ :sat-backtracks          72034
+ :sat-bce                 73881
+ :sat-conflicts           2720757
+ :sat-decisions           15706864
+ :sat-del-clause          4736076
+ :sat-elim-bool-vars-res  965758
+ :sat-elim-clauses        164453
+ :sat-elim-literals       1139148
+ :sat-gc-clause           2396927
+ :sat-minimized-lits      117268003
+ :sat-mk-clause-2ary      3903153
+ :sat-mk-clause-3ary      2475538
+ :sat-mk-clause-nary      3862257
+ :sat-mk-var              1409286
+ :sat-probing-assigned    8
+ :sat-propagations-2ary   3166296370
+ :sat-propagations-3ary   232837279
+ :sat-propagations-nary   442341595
+ :sat-restarts            231290
+ :sat-scc-elim-binary     71522
+ :sat-scc-elim-vars       3145
+ :sat-subs-resolution     170564
+ :sat-subs-resolution-dyn 6945686
+ :sat-subsumed            91658
+ :sat-tr                  11526
+ :sat-units               103731
+ :time                    369.77)
+Total compilation time = 728.2411556980001.
+('OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg q[35];\ncreg c[35];\n\n// moment 0\ncx q[21], q[23];\ncx q[1], q[0];\ncx q[25], q[30];\ncx q[10], q[27];\ncx q[16], q[11];\ncx q[12], q[13];\ncx q[3], q[4];\ncx q[18], q[33];\n\n// moment 1\ncx q[27], q[22];\ncx q[25], q[24];\ncx q[10], q[11];\ncx q[13], q[8];\ncx q[5], q[4];\nSWAP q[1], q[29];\nSWAP q[6], q[7];\nSWAP q[16], q[17];\nSWAP q[19], q[34];\nSWAP q[20], q[28];\nSWAP q[21], q[23];\nSWAP q[30], q[31];\n\n// moment 2\nSWAP q[1], q[29];\nSWAP q[2], q[28];\nSWAP q[3], q[4];\nSWAP q[7], q[8];\nSWAP q[9], q[23];\nSWAP q[11], q[16];\nSWAP q[12], q[13];\nSWAP q[17], q[19];\nSWAP q[21], q[22];\nSWAP q[25], q[26];\nSWAP q[32], q[33];\n\n// moment 3\ncx q[22], q[21];\ncx q[32], q[31];\ncx q[26], q[27];\ncx q[4], q[5];\nSWAP q[0], q[2];\nSWAP q[3], q[34];\nSWAP q[6], q[9];\nSWAP q[8], q[13];\nSWAP q[11], q[12];\nSWAP q[17], q[18];\nSWAP q[24], q[29];\nSWAP q[25], q[30];\n\n// moment 4\ncx q[2], q[0];\ncx q[29], q[1];\ncx q[16], q[17];\ncx q[11], q[10];\ncx q[8], q[7];\ncx q[34], q[19];\ncx q[27], q[22];\nSWAP q[3], q[4];\nSWAP q[5], q[15];\nSWAP q[20], q[21];\nSWAP q[30], q[31];\nSWAP q[32], q[33];\n\n// moment 5\ncx q[1], q[0];\ncx q[7], q[6];\ncx q[11], q[16];\ncx q[19], q[17];\ncx q[3], q[34];\nSWAP q[8], q[13];\nSWAP q[10], q[27];\nSWAP q[14], q[15];\nSWAP q[20], q[28];\nSWAP q[21], q[22];\nSWAP q[24], q[29];\nSWAP q[25], q[30];\nSWAP q[32], q[33];\n\n// moment 6\ncx q[28], q[2];\ncx q[24], q[25];\ncx q[27], q[26];\ncx q[14], q[13];\nSWAP q[0], q[1];\nSWAP q[3], q[34];\nSWAP q[5], q[15];\nSWAP q[6], q[9];\nSWAP q[7], q[8];\nSWAP q[11], q[12];\nSWAP q[16], q[17];\nSWAP q[21], q[23];\nSWAP q[30], q[31];\nSWAP q[32], q[33];\n\n// moment 7\ncx q[9], q[23];\ncx q[0], q[2];\ncx q[26], q[25];\ncx q[27], q[10];\ncx q[19], q[17];\ncx q[13], q[12];\nSWAP q[3], q[4];\nSWAP q[7], q[8];\nSWAP q[11], q[16];\nSWAP q[18], q[33];\n\n// measurement\nmeasure q[34]->c[0];\nmeasure q[14]->c[1];\nmeasure q[3]->c[2];\nmeasure q[13]->c[3];\nmeasure q[19]->c[4];\nmeasure q[12]->c[5];\nmeasure q[8]->c[6];\nmeasure q[27]->c[7];\nmeasure q[17]->c[8];\nmeasure q[26]->c[9];\nmeasure q[10]->c[10];\nmeasure q[16]->c[11];\nmeasure q[33]->c[12];\nmeasure q[24]->c[13];\nmeasure q[25]->c[14];\nmeasure q[0]->c[15];\nmeasure q[9]->c[16];\nmeasure q[23]->c[17];\nmeasure q[28]->c[18];\nmeasure q[2]->c[19];\nmeasure q[1]->c[20];\n', [34, 14, 3, 13, 19, 12, 8, 27, 17, 26, 10, 16, 33, 24, 25, 0, 9, 23, 28, 2, 1], [3, 5, 4, 12, 16, 13, 8, 10, 11, 25, 27, 18, 33, 24, 30, 1, 21, 23, 22, 0, 20])
